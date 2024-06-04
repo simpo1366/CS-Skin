@@ -1,0 +1,113 @@
+body{
+    margin:0;
+    width: 100%;
+}
+h1{
+    margin: 0;
+}
+.websiteName{
+    background-color: chocolate;
+    text-align: right;
+    top: 0;
+}
+.websiteName{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    height: 60px;
+    z-index: 1;
+}
+.headerLeftSection{
+    display: flex;
+}
+.headerLeftSection h1, .headerLeftSection img{
+    margin: auto 10px;
+}
+.headerLeftSection img{
+    height: 50px;
+    border-radius: 50%;
+
+}
+.headerRightSection{
+    display: flex;  
+}
+.headerRightSection nav{
+    margin: auto ;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+}
+.headerRightSection nav a{
+    text-decoration: none;
+}
+.headerRightSection nav a:hover{
+    color:bisque;
+    font-size: 18px;
+}
+
+.content{
+    font-family: Arial, Helvetica, sans-serif;
+    color: bisque;
+    text-align: center;
+    background-image: url("https://www.nescafe.com/mena/sites/default/files/2023-08/Coffee%20Types%20Banner%20Desktop.jpg");
+    height:1000px;
+    font-size: 50px;
+    margin: 60px 0 0 0;
+    background-repeat: no-repeat ;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+.content section{
+    position: relative;
+    top: 20px;
+}
+.contentFeaturedProduct{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(242, 146, 21);
+    background-image: url("https://t4.ftcdn.net/jpg/04/96/69/77/360_F_496697760_tdS4ozn74pK9vuIwh5Z7V0pNyjyvwnVG.jpg");
+    height: 1000px;
+    font-size: 30px;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat ;
+    display: flex;
+    align-items: center;
+}
+
+.contentFeaturedProduct .featuredProductDesc{
+    position: relative;
+    bottom: 150px;
+}
+.productDetails{
+    display: flex;
+}
+.productDetails .product{
+    font-size: 17px;
+    padding: 0 25px 0;
+    position: relative;
+    bottom: 20px;
+    width: 300px;
+    height: 225px;
+}
+.productDetails .product h3{
+    color: burlywood;
+}
+.productDetails .product p{
+    color: white;
+}
+.productDetails .product img{
+    width: 125px;
+    height: 200px;
+}
+.productDetails .product img:hover{
+    width: 150px;
+    height: 225px;
+}
+footer nav a img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
