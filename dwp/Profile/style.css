@@ -1,6 +1,16 @@
 body {
-    background: #f5f5f5;
-    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-image: url(https://cdn.akamai.steamstatic.com/apps/csgo/images/csgo_react/cs2/header_bg.svg);
+    background-repeat:no-repeat;
+    background-size: cover center;    margin-top: 20px;
+}
+
+.username{
+    opacity: 1;
+}
+
+.container-p-y{
+    opacity: 0.9;
 }
 
 .ui-w-80 {

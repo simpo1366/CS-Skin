@@ -2,13 +2,18 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(90deg, rgba(2,0,36,2) 0%, rgba(75,14,154,1) 35%, rgba(0,212,255,1) 100%);
+    background-image: url(https://cdn.akamai.steamstatic.com/apps/csgo/images/csgo_react/cs2/header_bg.svg);
+    background-repeat:no-repeat;
+    background-size: cover center;
 }
+
+
 
 /*------------ Login container ------------*/
 
 .box-area{
     width: 930px;
+    opacity: 0.9;
 }
 
 /*------------ Right box ------------*/
