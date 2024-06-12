@@ -4,3 +4,6 @@ body{
 .card{
     margin: 20px;
 }
+.navbar-brand{
+    margin-right: 50px;
+}

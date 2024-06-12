@@ -9,10 +9,15 @@ body{
     display:flex;
     justify-content: space-between;
   }
-
+  .navbar-brand{
+    margin-right: 50px;
+}
   .list-item p{
     width: 40vw;
   }
   .list-item span{
       margin: auto 0;
+  }
+  a .active{
+    color: #372938;
   }
