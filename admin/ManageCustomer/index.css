@@ -1,0 +1,18 @@
+body{
+    background-color: #F6EFE9;
+}
+.list-group{
+    height: 70vh;
+    margin: 15px;
+  }
+  .list-item{
+    display:flex;
+    justify-content: space-between;
+  }
+
+  .list-item p{
+    width: 40vw;
+  }
+  .list-item span{
+      margin: auto 0;
+  }
