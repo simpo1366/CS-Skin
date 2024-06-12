@@ -1,0 +1,23 @@
+body{
+    background-color: #F6EFE9;
+}
+main{
+    display: flex;
+}
+main .formSection{
+    width: 40vw;
+    height: 100vh;
+}
+main .listSection{
+    width: 60vw;
+    height: 100vh;
+}
+.navbar-brand{
+    margin-right: 50px;
+}
+.card{
+    margin:30px;
+}
+.card-body h5{
+    margin-bottom: 15px;
+}
