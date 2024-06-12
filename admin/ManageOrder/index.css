@@ -7,3 +7,6 @@ body{
 .navbar-brand{
     margin-right: 50px;
 }
+.card-body img{
+width: 260px;
+}
