@@ -1,6 +1,26 @@
 <?php include 'header.php'; ?>
+<style>
+    body {
+        background-image: url('images/Homepage/CS2_image.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+    }
+
+    .container.mt-5 .mb-4 {
+        font-family: 'Stratum2-Black';
+        text-transform: uppercase;
+    }
+
+    .container.mt-5 .form-group {
+        font-family: 'Stratum2-Black';
+        text-transform: uppercase;
+    }
+
+</style>
 <div>
-    <div class="container mt-5">
+    <div class="container mt-5 text-dark">
         <h1 class="mb-4">Comments and Ratings</h1>
         <form method="post" action="" class="mb-4">
             <div class="form-group">

@@ -2,7 +2,10 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <style>
     body {
-        background-color: #f8f9fa;
+        background-image: url('images/Homepage/CS2_image.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     .contact-us {
         background: #fff;
@@ -11,9 +14,11 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     .contact-us h1 {
+        font-family: 'Stratum2-Black';
         font-size: 2.5rem;
     }
     .contact-us h2 {
+        font-family: 'Stratum2-Black';
         font-size: 1.75rem;
         margin-top: 1.5rem;
     }
@@ -28,10 +33,14 @@
         background-color: #0056b3;
         border-color: #004085;
     }
+    .contact-us .form-group {
+        font-family: 'Stratum2-Black';
+        text-transform: uppercase;
+    }
 </style>
 <div>
     <main class="container mt-5 mb-5">
-        <section class="contact-us">
+        <section class="contact-us bg-dark bg-gradient text-light">
             <h1 class="mb-4">CONTACT US</h1>
             <h2>Get in touch with us</h2>
             <p>Have any questions or feedback? We'd love to hear from you!</p>

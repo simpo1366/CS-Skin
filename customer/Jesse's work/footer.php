@@ -3,7 +3,7 @@
 <div class="border-top bg-warning ">
 <div class="container">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-1 my-5">
-    <div class="col mb-3">
+    <div class="col mb-4">
       <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
         <img src="images/Header/csgo_icon.png" alt="" width="100px">
       </a>
