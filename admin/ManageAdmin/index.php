@@ -44,6 +44,7 @@
         <div class="card" style="background-color:#EDA7A7;color:white;">
           <div class="card-body">
             <u><h5 class="card-title">Add Admin Form</h5></u>
+            <?php
             <form class="row g-3">
               <div class="col-md-12">
                 <label for="validationDefault01" class="form-label">Admin name : </label>
@@ -57,6 +58,7 @@
                 <button class="btn btn-primary" type="submit">Submit</button>
               </div>
             </form>
+            ?>
           </div>
         </div>
       </div>
