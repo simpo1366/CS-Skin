@@ -2,7 +2,11 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <style>
     body {
-        background-color: #f8f9fa;
+        background-image: url('images/Homepage/CS2_image.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
     }
     .hero {
         background-image: url('your-hero-image.jpg'); /* Replace with your hero image */
@@ -13,11 +17,14 @@
         text-align: center;
     }
     .hero h1 {
+        font-family: 'Stratum2-Black';
         font-size: 4rem;
+        text-transform: uppercase;
         color: black;
         margin-bottom: 0.5rem;
     }
     .hero p {
+        font-family: 'Stratum2-Black';
         font-size: 1.5rem;
         color: black;
     }
@@ -25,15 +32,20 @@
         padding: 50px 0;
     }
     .features .icon {
+        font-family: 'Stratum2-Black';
         font-size: 3rem;
         color: #007bff;
         margin-bottom: 1rem;
     }
     .features h3 {
-        font-size: 1.75rem;
+        font-family: 'Stratum2-Black';
+        font-size: 1.50rem;
+        text-transform: uppercase;
     }
     .features p {
+        font-family: 'Stratum2-Black';
         font-size: 1rem;
+        text-transform: uppercase;
     }
     .cta {
         background-color: #007bff;
@@ -43,10 +55,12 @@
         margin-bottom: 50px;
     }
     .cta h2 {
+        font-family: 'Stratum2-Black';
         font-size: 2.5rem;
         margin-bottom: 1rem;
     }
     .cta a {
+        font-family: 'Stratum2-Black';
         font-size: 1.25rem;
         padding: 10px 20px;
     }
@@ -64,7 +78,7 @@
 
         <!-- Features Section -->
         <section class="features text-center">
-            <div class="container">
+            <div class="bg-dark bg-gradient container">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="icon"><i class="fas fa-exchange-alt"></i></div>

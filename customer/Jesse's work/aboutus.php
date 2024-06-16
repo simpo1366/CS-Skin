@@ -2,7 +2,10 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <style>
     body {
-        background-color: #f8f9fa;
+        background-image: url('images/Homepage/CS2_image.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     .about-us {
         background: #fff;
@@ -11,9 +14,11 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     .about-us h1 {
+        font-family: 'Stratum2-Black';
         font-size: 2.5rem;
     }
     .about-us h2 {
+        font-family: 'Stratum2-Black';
         font-size: 1.75rem;
         margin-top: 1.5rem;
     }
@@ -26,7 +31,7 @@
 </style>
 <div>
     <main class="container mt-5">
-        <section class="about-us">
+        <section class="about-us bg-dark bg-gradient text-light">
             <h1 class="mb-4">ABOUT US</h1>
             <h2>Our Mission</h2>
             <p>Welcome to the CS Skins Website, your number one source for all things Counter-Strike skins. We're dedicated to providing you the very best of skin trading, with an emphasis on user-friendly interface, transparency, and seamless transactions.</p>
