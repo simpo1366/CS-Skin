@@ -44,21 +44,19 @@
         <div class="card" style="background-color:#EDA7A7;color:white;">
           <div class="card-body">
             <u><h5 class="card-title">Add Admin Form</h5></u>
-            <?php
-            <form class="row g-3">
+            <form action="addAdminForm.php" method="post" class="row g-3">
               <div class="col-md-12">
                 <label for="validationDefault01" class="form-label">Admin name : </label>
-                <input type="text" class="form-control" id="validationDefault01" value="Mark" required>
+                <input name="name" type="text" class="form-control" id="validationDefault01" required>
               </div>
               <div class="col-md-12">
                 <label for="validationDefault02" class="form-label">Admin password : </label>
-                <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
+                <input name="pass" type="password" class="form-control" id="validationDefault02" required>
               </div>
               <div class="col-12">
                 <button class="btn btn-primary" type="submit">Submit</button>
               </div>
             </form>
-            ?>
           </div>
         </div>
       </div>
@@ -67,22 +65,53 @@
           <div class="card-body">
             <u><h5 class="card-title">Admin List</h5></u>
             <ul class="list-group">
-              <li class="list-group-item">Sim Po</li>
-              <li class="list-group-item">Sim Po</li>
-              <li class="list-group-item">Jia Xuan</li>
-              <li class="list-group-item">Jia Xuan</li>
-              <li class="list-group-item">Sim Po</li>
-              <li class="list-group-item">Jia Xuan</li>
-              <li class="list-group-item">Sim Po</li>
-              <li class="list-group-item">Sim Po</li>
-              <li class="list-group-item">Jia Xuan</li>
-              <li class="list-group-item">Sim Po</li>
+              <?php
+              include_once '../configDatabase.php';
+
+              $sql = "SELECT * FROM admin";
+              $result = $conn->query($sql);
+
+              if ($result->num_rows > 0) {
+                $adminData = array();
+                while($row = $result->fetch_assoc()) {
+                    $adminData[] = $row; 
+                }
+              }
+              foreach ($adminData as $admin) {
+                echo '<li class="list-group-item" style="display: flex; justify-content: space-between;"<span>' 
+                . $admin['admin_name'] . 
+                '</span><button class="removeAdmin btn btn-outline-danger" style="margin-right:100px;"data-adminId=' 
+                . $admin['admin_id'] . 
+                '>Remove</button>' .'</li>';
+              }
+              ?>
             </ul>
           </div>
         </div>
       </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+    <script>
+            const removeButtons = document.querySelectorAll('.removeAdmin');
+            removeButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const adminId = this.getAttribute('data-adminId');
+                    
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'removeAdmin.php', true);
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    
+                    // xhr.onload = function() {
+                    //     if (xhr.status === 200) {
+                    //         alert(xhr.responseText); 
+                    //     } else {
+                    //         alert('Request failed. Returned status of ' + xhr.status);
+                    //     }
+                    // };
+                    xhr.send('adminId=' + encodeURIComponent(adminId));
+                    location.reload();
+                });
+            });
+    </script>
 </body>
 </html>
