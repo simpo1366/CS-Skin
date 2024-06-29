@@ -1,0 +1,67 @@
+body{
+  background-color: #F6EFE9;
+  padding: 0;
+  margin: 0;
+}
+main{
+  display: flex;
+  width: 98vw;
+}
+.navbar-brand{
+  margin-right: 50px;
+}
+.addWeapon{
+  height: 100%;
+  width: 100%;
+  margin:30px;
+  padding: 30px;
+}
+.weaponDetails{
+  width: 220px;
+  height: 450px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.weaponDetails img{
+  width: 175px;
+  height: 150px;
+  display: flex;
+}
+.weaponDetails .btt-outline-danger{
+  width: 40px;
+  height: 20px;
+  margin-bottom: 20px;
+}
+.weaponDetails .btnDelete{
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+.card-body h5{
+  margin-bottom: 15px;
+}
+.customizeFloat{
+  padding: 3px 5px;
+  border-radius: 5px;
+  border: solid 2px black;
+}
+.min, .max{
+  font-weight: bold;
+}
+.floatRange{
+  margin: 0;
+  display: flex;
+}
+.max{
+  position: relative;
+  left: 755px;
+}
+/*CARD title and details css*/
+.card-title{
+  font-weight: bold;
+}
+.card-text{
+  color: grey;
+}

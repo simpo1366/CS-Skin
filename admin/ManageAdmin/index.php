@@ -100,14 +100,7 @@
                     const xhr = new XMLHttpRequest();
                     xhr.open('POST', 'removeAdmin.php', true);
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                    
-                    // xhr.onload = function() {
-                    //     if (xhr.status === 200) {
-                    //         alert(xhr.responseText); 
-                    //     } else {
-                    //         alert('Request failed. Returned status of ' + xhr.status);
-                    //     }
-                    // };
+                  
                     xhr.send('adminId=' + encodeURIComponent(adminId));
                     location.reload();
                 });
