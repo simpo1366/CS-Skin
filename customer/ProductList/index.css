@@ -69,38 +69,90 @@ h1{
 .loginNav #signUpBttn{
     background-color: lightcyan;
 }
-/*side bar*/
+
+/*sidebar*/
 .sidebar {
     height: 100%;
-    width: 250px; /* Width of the sidebar */
+    width: 0;
     position: fixed;
-    z-index: 1;
-    top: 80px;
+    z-index: 2;
+    top: 0;
     left: 0;
-    background-color: #483c3c; /* Sidebar background color */
+    background-color: #111;
     overflow-x: hidden;
-    padding-top: 20px;
-  }
-  main{
-    margin-left: 250px;
-  }
-  .sidebar-nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  .sidebar-nav ul li a {
-    padding: 15px 20px;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidebar i{
+    margin-right: 20px;
+    margin-left: 20px;
+    position: relative;
+    top: 6px;
+}
+
+.sidebar a {
+    padding: 10px 15px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 25px;
     color: white;
-    display: block;
-  }
-  
-  .sidebar-nav ul li a:hover {
-    color: plum;
-  }
+    display: flex;
+    transition: 0.3s;
+}
+
+.sidebar a:hover{
+    color: orange;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: orange;
+    padding: 10px 15px;
+    border: none;
+    position: fixed;
+    top: 160px;
+    left: 20px;
+    z-index: 1;
+}
+
+#main {
+    transition: margin-left .2s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+
+.hidden {
+    display: none;
+}
+
+/* Backdrop styling */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    display: none;
+}
+
+/*Searchcart css*/
 .searchCart{
-    height: 150px;
+    height: 120px;
     background-color: grey;
     display: flex;
     align-items:end;
@@ -137,21 +189,6 @@ h1{
     top: 4px;
     transition: all 0.3s;
 }
-.weaponType{
-    height: 60px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-}
-.weaponType button{
-    padding: 10px 20px;
-    border-radius: 7%;
-    margin: 0px 20px;
-    background-color:white ;
-    font-weight: bold;
-    font-size: 13px;
-}
 .grid-container {
     position: relative;
     top: 20px;
@@ -159,8 +196,8 @@ h1{
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr);
     gap: 30px; /* Optional: Adds space between the grid items */
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-left: 80px;
+    margin-right: 80px;
 }
 .grid-item {
     background-color: rgb(96, 90, 83);
@@ -187,7 +224,7 @@ h1{
     height: 200px;
     width: 250px;
 }
-.grid-item .addCartBttn{
+.grid-item .buyItemBtn{
     width: 280px;
     height: 35px;
     border-radius: 5px;
@@ -198,61 +235,73 @@ h1{
     margin: 10px 0;
     cursor: pointer;
 }
-.grid-item .addCartBttn:hover{
+.grid-item .buyItemBtn:hover{
     background-color: lightgreen;
 }
-.grid-item .addCartBttn:active{
+.grid-item .buyItemBtn:active{
     transform: scale(1.06);
 }
 
-/*Footer section*/
-.footer {
-    background-color: #2c2c2c; /* Dark background */
-    color: white;
-    padding: 100px 0;
-    font-family: Arial, sans-serif;
-    max-height: 500px;
-  }
-.footer-header p{
-    margin: 0px 0px 60px 10px;
-    font-size: 18pt;
-    font-weight: bold;
+/* Sorting features navigation */
+.sortingFeatures {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
-  .logo-container{
-    display: flex;
-  }
-  .logo-container img{
+
+.sortingFeatures button {
+    width: 160px;
+    margin-right: 10px;
+    padding: 10px 15px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.4s; /* Transition for background color and text color */
+
+}
+
+.sortingFeatures button:hover {
+    background-color: orange;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px; /* Adjust spacing between dropdowns */
+}
+
+
+.dropdownContent {
+    width: 160px;
+    display: none;
     position: absolute;
-    margin-left: 30px;
-    margin-top: 20px;                       
+    min-width: 130px;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Show dropdown content when hovering over dropdown */
+.dropdown:hover .dropdownContent {
+    display: block;
+    opacity: 0.95;
   }
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .footer-section {
-    flex: 1;
-  }
-  .footer-section h5 {
-    color: #ffffff;
-    margin-top: 50px;
-    margin-bottom: 15px;
-    font-size: 15pt;
-  }
-  .footer-section ul {
-    font-size: 15pt;
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer-section ul li a {
-    color: #9d9d9d;
+
+.dropdownContent button {
+    width: 100%;
+    color: black;
+    padding: 12px 16px;
     text-decoration: none;
     display: block;
-    margin-bottom: 10px;
-  }
+    border: none;
+    text-align: left;
+}
+
+.dropdownContent button:hover {
+    background-color: orange;
+}
+
   .grid-item p{
     text-align: center;
     margin: 0px 5px;

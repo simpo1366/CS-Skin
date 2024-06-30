@@ -90,12 +90,12 @@
             <div class="container-form">
                 <div class="card addWeapon">
                     <div>
-                        <form id="productForm" action="addProduct.php" method="post">
+                        <form id="productForm" action="addProduct.php" method="post" enctype="multipart/form-data">
                             <fieldset>
                                 <legend>Add Product Form</legend>
                                 <div class="mb-3">
                                     <label for="formFileMultiple" class="form-label">Weapon Picture:</label>
-                                    <input class="form-control" type="file" id="formFileMultiple" name="productPic" multiple />
+                                    <input class="form-control" type="file" id="formFileMultiple" name="productPic" require />
                                 </div>
                                 <div class="mb-3">
                                     <label for="productName" class="form-label">Skin Name:</label>
@@ -160,7 +160,7 @@ function fetchProducts($connect) {
 function renderProducts($products) {
     while ($product = $products->fetch_assoc()) {
         $id = htmlspecialchars($product['Product_id']);
-        $imageUrl = htmlspecialchars($product['Product_img']);
+        $imageUrl = base64_encode($product['Product_img']);
         $name = htmlspecialchars($product['Product_name']);
         $mainCategory = htmlspecialchars($product['Product_main_category']);
         $subCategory = htmlspecialchars($product['Product_sub_category']);
@@ -168,7 +168,7 @@ function renderProducts($products) {
         $floatValue = htmlspecialchars($product['Product_float']);
 
         echo '<div class="card weaponDetails">';
-        echo '<img src="./assets/' . $imageUrl  . '" class="card-img-top" alt="' . $name . '" />';
+        echo '<img src="data:image/jpeg;base64,' . $imageUrl  . '" class="card-img-top" alt="' . $name . '" />';
         echo '<div class="card-body">';
         echo '<h5 class="card-title">' . $name . '</h5>';
         echo '<p class="card-text">Weapon Type: <span>' . $mainCategory . ' | ' . $subCategory . '</span></p>';

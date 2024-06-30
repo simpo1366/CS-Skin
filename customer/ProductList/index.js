@@ -1,68 +1,148 @@
-const data = [{
+const items = [{
+    id: 1,
     itemName:'Headshot',
-    itemSrc: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJegJK6d2yq5ODmOPLO7TdmVRd4cJ5nqfF8dWi0FfjrRFlYGyhI9DEJAc8Z13TrALswey508S-v8_JmyAw73Uk-z-DyPm3Zsr8',
-    itemAlt: '',
+    itemImage: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJegJK6d2yq5ODmOPLO7TdmVRd4cJ5nqfF8dWi0FfjrRFlYGyhI9DEJAc8Z13TrALswey508S-v8_JmyAw73Uk-z-DyPm3Zsr8',
+    itemCategory: 'Assault Rifles',
+    itemSubcategory: 'AK-47',
     itemPrice:99.80,
     itemFloat:0.41,
-},{
-    itemName:'BloodSport',
-    itemSrc: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhnwMzJemkV0966m4-PhOf7Ia_ummJW4NE_2LyV89Wt0QewqBE6Z2-lcY6UJlRrMF7SqQTvyO7shsK5v5idn3Rn6D5iuyjFoprsug',
-    itemAlt: '',
-    itemPrice:400.60,
-    itemFloat:0.71,
-},{
-    itemName:'Wild Fire',
-    itemSrc: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwT09S5g4yCmfDLP7LWnn8f6pIl2-yYp9SnjA23-BBuNW-iLI-XJgFsZQyG_VW2lOq918e8uszLn2wj5HeAvkVdtQ',
-    itemAlt: '',
-    itemPrice:120.00,
-    itemFloat:0.31,
-},{
-    itemName:'Emphorosaur-S',
-    itemSrc: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO1gb-Gw_alIITXk25V4ct2te_T8ILvkWu5rhc1JjTtIobBcwA-ZV-G_lHvwuzr15fq75WamHRm6Scj4XiJmB3hhB8ea-FnhOveFwthv4bIjg',
-    itemAlt: '',
-    itemPrice:14.40,
-    itemFloat:0.81,
-},{
-    itemName:'Headshot',
-    itemSrc: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJegJK6d2yq5ODmOPLO7TdmVRd4cJ5nqfF8dWi0FfjrRFlYGyhI9DEJAc8Z13TrALswey508S-v8_JmyAw73Uk-z-DyPm3Zsr8',
-    itemAlt: '',
-    itemPrice:50.60,
-    itemFloat:0.95,
-},{
-    itemName:'Headshot',
-    itemSrc: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJegJK6d2yq5ODmOPLO7TdmVRd4cJ5nqfF8dWi0FfjrRFlYGyhI9DEJAc8Z13TrALswey508S-v8_JmyAw73Uk-z-DyPm3Zsr8',
-    itemAlt: '',
-    itemPrice:70.89,
-    itemFloat:0.61,
-},{
-    itemName:'Headshot',
-    itemSrc: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJegJK6d2yq5ODmOPLO7TdmVRd4cJ5nqfF8dWi0FfjrRFlYGyhI9DEJAc8Z13TrALswey508S-v8_JmyAw73Uk-z-DyPm3Zsr8',
-    itemAlt: '',
-    itemPrice:100.80,
-    itemFloat:0.01,
-},{
-    itemName:'Headshot',
-    itemSrc: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJegJK6d2yq5ODmOPLO7TdmVRd4cJ5nqfF8dWi0FfjrRFlYGyhI9DEJAc8Z13TrALswey508S-v8_JmyAw73Uk-z-DyPm3Zsr8',
-    itemAlt: '',
-    itemPrice:30.70,
-    itemFloat:0.01,
 }
 ]
 
-const gridContainer = document.querySelector(".grid-container")
-let htmlString = ''
-let float
-for (let i = 0; i < data.length; i++) {
-    if(data[i].itemFloat <= 0.9) float = 'BS'
-    if(data[i].itemFloat <= 0.7) float = 'WW'
-    if(data[i].itemFloat <= 0.5) float = 'FT'
-    if(data[i].itemFloat <= 0.3) float = 'MW'
-    if(data[i].itemFloat <= 0.1) float = 'FN'
-    htmlString += `<div class="grid-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <figure class="weapon"><img src=${data[i].itemSrc} alt=${data[i].itemAlt}></figure>
-                        <figcaption>${data[i].itemAlt} ${data[i].itemName}</figcaption><p>Float Value: ${data[i].itemFloat} | ${float}</p><p>RM${data[i].itemPrice.toFixed(2)}</p><button class="addCartBttn"><i class="fa-solid fa-cart-shopping"></i></button>
-                    </div>`
+// Function to sort items
+function sortItems(itemCategory, itemSubcategory = 'Any') {
+    let sortedItems;
+    if (itemCategory === 'Any') {
+        sortedItems = items; //display all items
+    } else if (itemSubcategory === 'Any') {
+        sortedItems = items.filter(items => items.itemCategory === itemCategory);
+    } else {
+        sortedItems = items.filter(items => items.itemCategory === itemCategory && items.itemSubcategory === itemSubcategory);
+    }
+    renderItems(sortedItems);
 }
 
-gridContainer.innerHTML = htmlString
+// Function to render items
+// function renderItems(items) {
+//     const gridContainer = document.querySelector(".grid-container");
+//     gridContainer.innerHTML = ''; // Clear the container before adding new items
 
+//     let htmlString = '';
+//     let float;
+
+//     for (let i = 0; i < items.length; i++) {
+//         if (items[i].itemFloat <= 0.1) {
+//             float = 'FN';
+//         } else if (items[i].itemFloat <= 0.3) {
+//             float = 'MW';
+//         } else if (items[i].itemFloat <= 0.5) {
+//             float = 'FT';
+//         } else if (items[i].itemFloat <= 0.7) {
+//             float = 'WW';
+//         } else {
+//             float = 'BS';
+//         }
+
+//     }
+
+//     gridContainer.innerHTML = htmlString; // Insert the generated HTML into the container
+// }
+
+
+//side bar function
+function openNav() {
+    document.getElementById("sidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("backdrop").style.display = "block";
+    document.querySelector('.openbtn').classList.add('hidden');
+}
+
+function closeNav() {
+    document.getElementById("sidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    document.getElementById("backdrop").style.display = "none";
+    document.querySelector('.openbtn').classList.remove('hidden');
+}
+
+// Close the sidebar if clicking outside of it
+document.getElementById("backdrop").addEventListener("click", closeNav);
+
+
+
+//searchbar functions
+document.addEventListener("DOMContentLoaded", () => {
+    
+    function sortItems(itemCategory, itemSubcategory = 'Any') {
+        let sortedItems;
+        
+        if (itemCategory === 'Any') {
+            sortedItems = items; // Display all items
+        } else if (itemSubcategory === 'Any') {
+            sortedItems = items.filter(item => item.itemCategory === itemCategory);
+        } else {
+            sortedItems = items.filter(item => item.itemCategory === itemCategory && item.itemSubcategory === itemSubcategory);
+        }
+        
+        renderItems(sortedItems);
+    }
+
+    // Function to search items
+    function searchItems(query) {
+        const searchQuery = query.toLowerCase();
+        const filteredItems = items.filter(item => item.itemName.toLowerCase().includes(searchQuery) ||
+        item.itemCategory.toLowerCase().includes(searchQuery) ||
+        item.itemSubcategory.toLowerCase().includes(searchQuery));
+        renderItems(filteredItems);/*searchItems(query) function now checks if the search query matches any part of the itemName, itemCategory, or itemSubcategory.*/
+    }
+
+    // Example for main categories
+    const categoryButtons = document.querySelectorAll(".category-btn");
+    categoryButtons.forEach(button => {
+        button.addEventListener("click", (event) => {
+            const itemCategory = event.target.dataset.category;
+            sortItems(itemCategory, 'Any');
+        });
+    });
+
+    // Example for subcategories
+    const subcategoryButtons = document.querySelectorAll(".subcategory-btn");
+    subcategoryButtons.forEach(button => {
+        button.addEventListener("click", (event) => {
+            const itemCategory = event.target.dataset.category;
+            const itemSubcategory = event.target.dataset.subcategory;
+            sortItems(itemCategory, itemSubcategory);
+        });
+    });
+
+    // Event listener for the search bar
+    const searchBar = document.getElementById("searchBar");
+    searchBar.addEventListener("input", (event) => {
+        const searchQuery = event.target.value;
+        searchItems(searchQuery);
+    });
+
+    // Initial render
+    renderItems(items);
+});
+
+//toggle button colours function(retain button colors)
+var currentButton = null; // Track the currently yellow button
+
+function toggleColor(button) {
+  // If there is a currently orange button, change it back to default color
+  if (currentButton && currentButton !== button) {
+    currentButton.style.backgroundColor = "#f1f1f1"; // Change back to initial color
+    currentButton.style.color = "black"; // Change text color back to white
+  }
+
+  // Toggle the color of the clicked button
+  if (button.style.backgroundColor === "orange") {
+    button.style.backgroundColor = "#f1f1f1"; // Change back to initial color
+    button.style.color = "black"; // Change text color back to white
+    currentButton = null; // No button is currently yellow
+  } else {
+    button.style.backgroundColor = "orange"; // Change background color to yellow
+    button.style.color = "black"; // Change text color to black
+    currentButton = button; // Update the currently yellow button
+  }
+}
