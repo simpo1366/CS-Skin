@@ -49,68 +49,45 @@
     <main>
         
         <ul class="list-group">
-            <h4><i class="fa-solid fa-cart-shopping"></i>Cart</h4>
-            
-            <li class="list-group-item">
-                <div class="list-item">
-                    <p>headshot</p>
-                    <span class="price">Price : RM199</span>
-                    <button class="btn btn-primary">review item page</button>
-                    <button class="quantityi btn btn-secondary">+1</button>
-                    <span>Quantity : 1</span>
-                    <button class="quantityd btn btn-secondary">-1</button>
-                    <button class="btn btn-danger">delete</button>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="list-item">
-                    <p>headshot</p>
-                    <span class="price">Price : RM199</span>
-                    <button class="btn btn-primary">review item page</button>
-                    <button class="quantityi btn btn-secondary">+1</button>
-                    <span>Quantity : 1</span>
-                    <button class="quantityd btn btn-secondary">-1</button>
-                    <button class="btn btn-danger">delete</button>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="list-item">
-                    <p>headshot</p>
-                    <span class="price">Price : RM199</span>
-                    <button class="btn btn-primary">review item page</button>
-                    <button class="quantityi btn btn-secondary">+1</button>
-                    <span>Quantity : 1</span>
-                    <button class="quantityd btn btn-secondary">-1</button>
-                    <button class="btn btn-danger">delete</button>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="list-item">
-                    <p>headshot</p>
-                    <span class="price">Price : RM199</span>
-                    <button class="btn btn-primary">review item page</button>
-                    <button class="quantityi btn btn-secondary">+1</button>
-                    <span>Quantity : 1</span>
-                    <button class="quantityd btn btn-secondary">-1</button>
-                    <button class="btn btn-danger">delete</button>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="list-item">
-                    <p>headshot</p>
-                    <span class="price">Price : RM199</span>
-                    <button class="btn btn-primary">review item page</button>
-                    <button class="quantityi btn btn-secondary">+1</button>
-                    <span>Quantity : 1</span>
-                    <button class="quantityd btn btn-secondary">-1</button>
-                    <button class="btn btn-danger">delete</button>
-                </div>
-            </li>
+        <h4><i class="fa-solid fa-cart-shopping"></i>Cart</h4> 
 
-          </ul>
+        <?php
+            session_start();
+            include "../../admin/configDatabase.php";
+            $user_id = $_SESSION['user_id'];
+            $sql = "SELECT c.product_id, c.quantity, p.Product_name, p.Product_price, p.Product_img 
+                    FROM carts c 
+                    JOIN product_category p ON c.product_id = p.Product_id 
+                    WHERE c.user_id = '$user_id'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<li class="list-group-item">
+                            <div class="list-item">
+                                <img src="' . $row["Product_img"] . '" alt="' . $row["Product_name"] . '" style="width: 50px; height: 50px;">
+                                <p>' . $row["Product_name"] . '</p>
+                                <span class="price">Price : RM' . $row["Product_price"] . '</span>
+                                <button class="btn btn-primary" onclick="reviewFromCart(' . $row["product_id"] . ')>review item page</button>
+                                <span>Quantity : ' . $row["quantity"] . '</span>
+                                <button class="btn btn-danger" onclick="deleteFromCart(' . $row["product_id"] . ')">delete from cart</button>
+                            </div>
+                        </li>';
+                }
+            } else {
+                echo "<li class='list-group-item'>empty cart</li>";
+            }
+
+            $conn->close();
+            ?>
+
+           
+        </ul>
     <div class="checkOut">
         <span>Total: RM995</span>
-        <button class="btn btn-success">CheckOut</button>
+        <form action="" method="">
+        <button type="submit" class="btn btn-success">CheckOut</button>
+        </form>
     </div>
 </body>
 <!-- Footer HTML -->
@@ -153,5 +130,30 @@
     <!-- App store icons would go here -->
 </footer>
 </main>
+<script>
+            function deleteFromCart(productId) {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'deleteFromCart.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        alert(`Product ${productId} deleted from cart!`);
+                        location.reload(); 
+                    } else {
+                        alert('Error deleting product from cart.');
+                    }
+                };
+
+                xhr.send(`product_id=${productId}`);
+            }
+            function reviewFromCart(productId) {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', '../productDetails', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                xhr.send(`id=${productId}`);
+            }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>

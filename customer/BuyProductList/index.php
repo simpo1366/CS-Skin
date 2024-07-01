@@ -160,8 +160,30 @@
       </main>
 
 </body>
-<script src="./index.js"></script>
+
+<!-- <script src="./index.js"></script> -->
 <script src="./utils/RenderProductDetails.js"></script>
+<script>
+function addToCart(productId) {
+
+    const quantity = 1;
+    const userId = <?php echo $_SESSION['user_id']; ?>; 
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '../cart/addToCart.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            alert(`Product ${productId} Added to cart!`);
+        } else {
+            alert('Error adding product to cart.');
+        }
+    };
+
+    xhr.send(`product_id=${productId}&quantity=${quantity}&user_id=${userId}`);
+}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </html>

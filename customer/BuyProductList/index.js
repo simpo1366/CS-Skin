@@ -146,8 +146,3 @@ function toggleColor(button) {
     currentButton = button; // Update the currently yellow button
   }
 }
-//simpo write
-function addToCart(id) {
-    // Add JavaScript code to handle the trade action
-    alert(`Product ${id} Added to cart!`);
-}
