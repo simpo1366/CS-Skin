@@ -100,11 +100,11 @@
     </div>
     <!--product section-->
       <main>
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" id="productModal">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Product Details</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -137,7 +137,7 @@
                 $floatValue = htmlspecialchars($product['Product_float']);
                 $price = htmlspecialchars($product['Product_price']);
 
-                echo '<div class="grid-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop">';
+                echo '<div class="grid-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-productid=' . $id .'>';
                 echo '<figure class="weapon">';
                 echo '<img src="data:image/jpeg;base64,' . $imageUrl . '" alt="'. $name .'">';
                 echo '</figure>';
@@ -148,8 +148,8 @@
                 echo '<i class="fa-solid fa-cart-shopping"></i>';
                 echo '</button>';
                 echo '</div>';                
-  }
-}
+                }
+            }
 
               // Fetch and render products
               $products = fetchProducts($conn);
@@ -161,6 +161,7 @@
 
 </body>
 <script src="./index.js"></script>
+<script src="./utils/RenderProductDetails.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </html>

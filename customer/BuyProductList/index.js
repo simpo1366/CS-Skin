@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Initial render
-    renderItems(items);
+    //renderItems(items);
 });
 
 //toggle button colours function(retain button colors)
@@ -145,4 +145,9 @@ function toggleColor(button) {
     button.style.color = "black"; // Change text color to black
     currentButton = button; // Update the currently yellow button
   }
+}
+//simpo write
+function addToCart(id) {
+    // Add JavaScript code to handle the trade action
+    alert(`Product ${id} Added to cart!`);
 }
