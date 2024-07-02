@@ -88,18 +88,16 @@ h1{
     list-style-type: none;
     padding: 0;
   }
-
-
   .sidebar-nav ul li a {
     padding: 15px 20px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
     display: block;
   }
   
   .sidebar-nav ul li a:hover {
-    color: #f1f1f1;
+    color: plum;
   }
 .searchCart{
     height: 150px;
@@ -134,15 +132,29 @@ h1{
 .searchCart .cart button:hover{
     background-color: whitesmoke;
 }
-
 .searchCart .cart button:active{
     position: relative;
     top: 4px;
     transition: all 0.3s;
 }
+.weaponType{
+    height: 60px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.weaponType button{
+    padding: 10px 20px;
+    border-radius: 7%;
+    margin: 0px 20px;
+    background-color:white ;
+    font-weight: bold;
+    font-size: 13px;
+}
 .grid-container {
     position: relative;
-    top: 80px;
+    top: 20px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr);
@@ -158,8 +170,8 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 350px; /* Example height */
-    width: 350px;
+    height: 400px;
+    width: 300px;
     flex-direction: column;
     font-size: 15px;
     border-radius: 3px;
@@ -183,7 +195,7 @@ h1{
     transition: transform 0.3s ease;
     border: none;
     padding: 10px 10px;
-    margin: 35px 0px 0px 0px;
+    margin: 10px 0;
     cursor: pointer;
 }
 .grid-item .addCartBttn:hover{
@@ -199,7 +211,7 @@ h1{
     color: white;
     padding: 100px 0;
     font-family: Arial, sans-serif;
-    max-height: 300px;
+    max-height: 500px;
   }
 .footer-header p{
     margin: 0px 0px 60px 10px;
@@ -241,21 +253,16 @@ h1{
     display: block;
     margin-bottom: 10px;
   }
-  .list-group{
-    height: 70vh;
-    margin: 15px;
-  }
-  .list-item{
-    display:flex;
-    justify-content: space-between;
-  }
-
-  .list-item p{
-    width: 30vw;
-  }
-  .list-item span{
-      margin: auto 0;
-  }
-  .list-group .fa-clock-rotate-left{
-    margin: 0 15px;
-  }
+  .grid-item p{
+    text-align: center;
+    margin: 0px 5px;
+    font-size: 12pt;
+    color: white;
+}
+.grid-item figcaption{
+    text-align: center;
+    margin: 5px 5px;
+    font-size: 15pt;
+    color: orange;
+    font-weight: bold;
+}

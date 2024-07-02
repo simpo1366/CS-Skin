@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Product and Services List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="websiteName">
+        <div class="headerLeftSection">
+            <img src="https://www.7gone.com/public/images/6684d7654481632539ef0b583b141704.png" alt="CS SKINS WEBSITE">
+            <h1>CS SKINS WEBSITE</h1>
+        </div>
+        <div class="headerRightSection">
+            <nav><a href="../Home/">Home</a></nav>
+            <nav><a href="#">Market</a></nav>
+            <nav><a href="#">About Us</a></nav>
+            <nav><a href="#">Join Us</a></nav>
+        </div>
+        <div class="loginNav">
+            <button id="loginBttn">Login</button>
+            <button id="signUpBttn">Sign Up</button>
+        </div>
+    </header>
+    <div class="searchCart">
+        <div class="searchBar"><label for="searchBar" style="font-size: 18px;font-weight: bold;">Search Your
+                Item:</label><input id="searchBar" type="search"></div>
+        <div class="cart"><button style="font-size: 15pt;font-weight: bold;">Your Cart<i
+                    class="fa-solid fa-cart-shopping"></i></button></div>
+    </div>
+    <!--side bar-->
+    <aside class="sidebar">
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#" id="buy"><i class="fa-solid fa-cart-shopping"></i> BUY</a></li>
+                <li><a href="#" id="sell"><i class="fa-solid fa-sack-dollar"></i> SELL</a></li>
+                <li><a href="#" id="cashout"><i class="fa-solid fa-money-bill-1"></i> CASHOUT</a></li>
+                <li><a href="#" id="history"><i class="fa-solid fa-clock-rotate-left"></i> HISTORY</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        
+        <ul class="list-group">
+        <h4><i class="fa-solid fa-cart-shopping"></i>Cart</h4> 
+
+        <?php
+            session_start();
+            include "../../admin/configDatabase.php";
+            $user_id = $_SESSION['user_id'];
+            $sql = "SELECT c.product_id, c.quantity, p.Product_name, p.Product_price, p.Product_img 
+                    FROM carts c 
+                    JOIN product_category p ON c.product_id = p.Product_id 
+                    WHERE c.user_id = '$user_id'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<li class="list-group-item">
+                            <div class="list-item">
+                                <img src="' . $row["Product_img"] . '" alt="' . $row["Product_name"] . '" style="width: 50px; height: 50px;">
+                                <p>' . $row["Product_name"] . '</p>
+                                <span class="price">Price : RM' . $row["Product_price"] . '</span>
+                                <button class="btn btn-primary" onclick="reviewFromCart(' . $row["product_id"] . ')>review item page</button>
+                                <span>Quantity : ' . $row["quantity"] . '</span>
+                                <button class="btn btn-danger" onclick="deleteFromCart(' . $row["product_id"] . ')">delete from cart</button>
+                            </div>
+                        </li>';
+                }
+            } else {
+                echo "<li class='list-group-item'>empty cart</li>";
+            }
+
+            $conn->close();
+            ?>
+
+           
+        </ul>
+    <div class="checkOut">
+        <span>Total: RM995</span>
+        <form action="" method="">
+        <button type="submit" class="btn btn-success">CheckOut</button>
+        </form>
+    </div>
+</body>
+<!-- Footer HTML -->
+<footer class="footer">
+    <div class="footer-header">
+        <p>Buying & Trading CSGO Skins</p>
+        <hr>
+    </div>
+    <div class="logo-container">
+        <img style="width: 250px ;height: 200px;"
+            src="https://www.7gone.com/public/images/6684d7654481632539ef0b583b141704.png" alt="CS Skin Website Logo">
+    </div>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h5>Market</h5>
+            <ul>
+                <li><a href="#">Buy</a></li>
+                <li><a href="#">Sell</a></li>
+                <li><a href="#">Auction</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h5>Additional</h5>
+            <ul>
+                <li><a href="#">Personal area</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Visual settings</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h5>Terms</h5>
+            <ul>
+                <li><a href="#">Privacy policy</a></li>
+                <li><a href="#">Terms of use</a></li>
+                <li><a href="#">Refund Policy</a></li>
+            </ul>
+        </div>
+        <!-- Add additional sections as needed -->
+    </div>
+    <!-- App store icons would go here -->
+</footer>
+</main>
+<script>
+            function deleteFromCart(productId) {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'deleteFromCart.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        alert(`Product ${productId} deleted from cart!`);
+                        location.reload(); 
+                    } else {
+                        alert('Error deleting product from cart.');
+                    }
+                };
+
+                xhr.send(`product_id=${productId}`);
+            }
+            function reviewFromCart(productId) {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', '../productDetails', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                xhr.send(`id=${productId}`);
+            }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</html>
