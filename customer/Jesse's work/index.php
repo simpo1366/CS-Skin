@@ -9,7 +9,7 @@
         color: white;
     }
     .hero {
-        background-image: url('your-hero-image.jpg'); /* Replace with your hero image */
+        background-image: url(''); /* Replace with your hero image */
         background-size: cover;
         background-position: center;
         color: #fff;

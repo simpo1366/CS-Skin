@@ -5,54 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS:GO Skins Slider</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        @font-face {
-            font-family: 'Stratum2-Black';
-            src: url(fonts/Stratum2-Black.otf);
-            font-weight: normal;
-            font-style: normal;
-        }
-        body {
-            background-image: url('images/Homepage/CS2_image.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
-        }
-        .carousel-item {
-            height: 300px;
-            background-color: #333;
-            color: white;
-            text-align: center;
-        }
-        .carousel-item img {
-            max-height: 100%;
-            max-width: 40%;
-            margin: auto;
-            background-color: orange;
-        }
-        .carousel-caption {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-        }
-        .section-title {
-            margin-top: 50px;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: bold;
-            color: black;
-            font-family: 'Stratum2-Black', sans-serif;
-        }
-        .carousel-item.active {
-            background-color: orange;
-        }
-        .carousel-indicators li {
-            background-color: orange;
-        }
-        .carousel-indicators .active {
-            background-color: darkorange;
-        }
-    </style>
+    <link rel="stylesheet" href="home.css">
+
 </div>
 <body>
     <!-- Hottest Deals Section -->

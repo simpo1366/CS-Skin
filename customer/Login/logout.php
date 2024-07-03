@@ -6,4 +6,4 @@ $_SESSION = array();
 
 session_destroy();
 
-header("location:");
+header("location:../Jesse's work/index.php");
