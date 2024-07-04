@@ -167,7 +167,7 @@
 function addToCart(productId) {
 
     const quantity = 1;
-    const userId = <?php $_SESSION['user_id'] = 1;echo $_SESSION['user_id']; ?>; 
+    const userId = <?php echo $_SESSION['user_id']; ?>; 
 
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '../cart/addToCart.php', true);

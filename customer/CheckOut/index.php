@@ -310,7 +310,6 @@
             
             <?php
             include "../../admin/configDatabase.php";
-            $_SESSION['user_id'] = 1;
             $user_id = $_SESSION['user_id'];
             $sql = "SELECT c.product_id, c.quantity, p.Product_name, p.Product_price, p.Product_img 
                     FROM carts c 
