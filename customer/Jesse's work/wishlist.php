@@ -1,28 +1,6 @@
 <?php include 'header.php'; ?>
-<style>
-        @font-face {
-            font-family: 'Stratum2-Black';
-            src: url(fonts/Stratum2-Black.otf);
-            font-weight: normal;
-            font-style: normal;
-        }
-        body {
-            background-image: url('images/Homepage/CS2_image.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
-        }
-        .custom-font {
-            font-family: 'Stratum2-Black', sans-serif;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        .card {
-            background-color: orange;
-        }
-    </style>
+<link rel="stylesheet" href="wishlist.css">
+
 </head>
     <div class="container mt-5">
         <h1 class="text-center custom-font text-dark">Wishlist</h1>

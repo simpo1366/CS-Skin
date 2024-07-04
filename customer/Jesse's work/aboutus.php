@@ -1,34 +1,7 @@
 <?php include 'header.php'; ?>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<style>
-    body {
-        background-image: url('images/Homepage/CS2_image.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .about-us {
-        background: #fff;
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .about-us h1 {
-        font-family: 'Stratum2-Black';
-        font-size: 2.5rem;
-    }
-    .about-us h2 {
-        font-family: 'Stratum2-Black';
-        font-size: 1.75rem;
-        margin-top: 1.5rem;
-    }
-    .about-us ul {
-        padding-left: 1.5rem;
-    }
-    .about-us ul li {
-        margin-bottom: 0.5rem;
-    }
-</style>
+<link rel="stylesheet" href="aboutus.css">
+
 <div>
     <main class="container mt-5">
         <section class="about-us bg-dark bg-gradient text-light">

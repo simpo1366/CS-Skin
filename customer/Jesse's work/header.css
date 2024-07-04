@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'Stratum2-Black';
+    src: url(fonts/Stratum2-Black.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+.bg-dark.bg-gradient .nav {
+    font-family: 'Stratum2-Black';
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: .8;
+    margin: 0px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 3px 0px;
+    text-transform: uppercase;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    text-shadow: 1px 1px 2px #000;
+}
+.dropdown.text-end .dropdown-item {
+    font-family: 'Stratum2-Black';
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: .8;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    text-shadow: 1px 1px 2px #000;
+}
+.col.mb-3 .text-dark {
+    font-family: 'Stratum2-Black';
+    align-items: center;
+    flex-direction: row;
+}
+.col.mb-3 .nav {
+    font-family: 'Stratum2-Black';
+    flex-direction: row;
+    text-transform: uppercase;
+}
