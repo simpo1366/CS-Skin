@@ -72,7 +72,7 @@
             <div class="container">
                 <h1>Welcome to the official CS Skins Marketplace</h1>
                 <p>Buy, sell, and trade Counter-Strike skins with ease</p>
-                <a href="#" class="btn btn-primary btn-lg">Get Started</a>
+                <a href="../Sign Up/signup.php" class="btn btn-primary btn-lg">Get Started</a>
             </div>
         </section>
 
@@ -104,7 +104,7 @@
             <div class="container">
                 <h2>Ready to Start Trading?</h2>
                 <p>Join our community today and take your skin trading to the next level.</p>
-                <a href="#" class="btn btn-light btn-lg">Sign Up Now</a>
+                <a href="../Sign Up/signup.php" class="btn btn-light btn-lg">Sign Up Now</a>
             </div>
         </section>
     </main>
