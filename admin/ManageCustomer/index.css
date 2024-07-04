@@ -1,8 +1,9 @@
 body{
     background-color: #F6EFE9;
 }
-.list-group{
+  .list-group-item{
     height: 70vh;
+    width: 70vw;
     margin: 15px;
   }
   .list-item{
@@ -13,7 +14,7 @@ body{
     margin-right: 50px;
 }
   .list-item p{
-    width: 40vw;
+    width: 30vw;
   }
   .list-item span{
       margin: auto 0;

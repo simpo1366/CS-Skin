@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <style>
       body{
     background-color: #F4F4FD;;
@@ -117,58 +118,50 @@ main .listSection{
         </div>
       </nav>
     <main>
-      <div class="formSection">
-        <div class="card" style="background-color:white;">
-          <div class="card-body">
-            
-            <u style="font-weight: bold; font-size: 23px; color:darkorange;"><h5 class="card-title" style="font-weight: bold; font-size: 23px; color:darkorange;">Add Admin Form</h5></u>
-            <form action="addAdminForm.php" method="post" class="row g-3">
-              <div class="col-md-12">
-                <label for="validationDefault01" class="form-label" style="font-weight: bold; font-size: 16px; color: grey;"><i class="fa-solid fa-user-tie" style="margin: 0px 5px ;"></i>Admin name : </label>
-                <input name="name" type="text" class="form-control" id="validationDefault01" required>
-              </div>
-              <div class="col-md-12">
-                <label for="validationDefault02" class="form-label" style="font-weight: bold; font-size: 16px; color: grey;"><i class="fa-solid fa-lock" style="margin: 0px 5px;"></i>Admin password : </label>
-                <input name="pass" type="password" class="form-control" id="validationDefault02" required>
-              </div>
-              <div class="col-12">
-                <button class="btn btn-primary" type="submit" style="width: 125px; margin-top: 5px;  transition: all 0.5s;"><span style="  display: inline-block;
-  position: relative;
-  transition: 0.5s;">Add</span></button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="listSection">
-        <div class="card" style="background-color:white;">
-          <div class="card-body">
-            <u style="font-weight: bold; font-size: 23px; color:darkorange;"><h5 class="card-title" style="font-weight: bold; font-size: 23px; color:darkorange; ">Admin List</h5></u>
-            <ul class="list-group">
-              <?php
-              include_once '../configDatabase.php';
+    <div class="row row-cols-1 row-cols-md-5 g-3">
 
-              $sql = "SELECT * FROM admin";
-              $result = $conn->query($sql);
+<?php
+include "../../admin/configDatabase.php";
+session_start();
 
-              if ($result->num_rows > 0) {
-                $adminData = array();
-                while($row = $result->fetch_assoc()) {
-                    $adminData[] = $row; 
-                }
-              }
-              foreach ($adminData as $admin) {
-                echo '<li class="list-group-item" style="display: flex; justify-content: space-between;"<span>' 
-                . $admin['admin_name'] . 
-                '</span><button class="removeAdmin btn btn-outline-danger" style="margin-right:20px;"data-adminId=' 
-                . $admin['admin_id'] . 
-                '>Remove</button>' .'</li>';
-              }
-              ?>
-            </ul>
-          </div>
-        </div>
-      </div>
+$user_id = $_SESSION['user_id'] ?? 1;
+$sql = "SELECT o.order_id,o.order_date, o.total, o.status, u.username, p.Product_name, p.Product_img, p.Product_price
+        FROM orders o
+        JOIN user u ON o.user_id = u.id
+        JOIN product_category p ON o.product_id = p.Product_id
+        WHERE o.user_id = '$user_id'";
+$result = $conn->query($sql);
+?>
+  <?php
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $imageUrl = base64_encode($row['Product_img']);
+                $status = $row["status"] ?? "Pending";
+                echo '<div class="col">
+                      <div class="card mb-3">
+                        <div class="card-body" style="background-color:gray;color:white;width: 260px;border-radius:10px;">
+                            <h5 class="card-title">Customer Name: ' . $row["username"] . '</h5>
+                            <p class="card-text">Product Name: ' . $row["Product_name"] . '</p>
+                            <img src="data:image/jpeg;base64,' . $imageUrl . '" alt="' . $row["Product_name"] . '" style="width: 100%; height: auto; border-radius: 10px;">
+                            <p class="card-text">Product Price: RM' . $row["Product_price"] . '</p>
+                            <p class="card-text">Order Time: ' . $row["order_date"] . '</p>
+                            <p class="card-text">Status: ' . $status . '</p>
+                            <p class="card-text">
+                                <button class="btn btn-primary" onclick="updateStatus(' . $row["order_id"] . ', \'Complete\')">Complete</button>
+                                <button class="btn btn-danger" onclick="updateStatus(' . $row["order_id"] . ', \'Cancel\')">Cancel</button>
+                            </p>
+                        </div>
+                      </div>
+                      </div>';
+                      }
+        }else {
+            echo '<p class="text-center">No orders found</p>';
+        }
+        $conn->close();
+        ?>
+
+
+</div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
@@ -192,6 +185,14 @@ main .listSection{
                     location.reload();
                 });
             });
+    function updateStatus(orderId, status) {
+        $.ajax({
+            url: 'updateStatus.php',
+            type: 'post',
+            data: { order_id: orderId, status: status },
+            success: ()=> {location.reload()}
+        });
+    }
     </script>
 </body>
 </html>
