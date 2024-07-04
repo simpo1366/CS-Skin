@@ -3,7 +3,6 @@ include "../../admin/configDatabase.php";
 session_start();
 
 $user_id = $_SESSION['user_id'];
-$user_id = $_SESSION['user_id'];
 $sql = "SELECT o.order_id, o.order_date, o.product_price, o.quantity, o.status, p.Product_name
         FROM orders o
         JOIN product_category p ON o.product_id = p.Product_id
