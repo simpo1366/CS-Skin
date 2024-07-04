@@ -15,9 +15,31 @@ main .listSection{
 .navbar-brand{
     margin-right: 50px;
 }
-.card{
+.formSection .card{
     margin:30px;
+    background-color: purple;
 }
+
 .card-body h5{
     margin-bottom: 15px;
 }
+.btn-primary span:hover{
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+.btn-primary span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  .btn-primary:hover span{
+    padding-right: 25px;
+  }
+  .btn-primary:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

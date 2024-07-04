@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Admin</title>
+    <link rel="stylesheet" href="index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="index.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <style>
       body{
     background-color: #F4F4FD;;
@@ -82,6 +84,18 @@ main .listSection{
     transform: scaleX(1);
     transform-origin: bottom left;
 }
+p{
+  margin-bottom: 0;
+}
+.list-group{
+    height: 70vh;
+    width: 80vw;
+    margin: 15px;
+    margin-left: 10vw;
+  }
+  .list-item p{
+    width: 30vw;
+  }
     </style>
 </head>
 <body>
@@ -117,81 +131,55 @@ main .listSection{
         </div>
       </nav>
     <main>
-      <div class="formSection">
-        <div class="card" style="background-color:white;">
-          <div class="card-body">
-            
-            <u style="font-weight: bold; font-size: 23px; color:darkorange;"><h5 class="card-title" style="font-weight: bold; font-size: 23px; color:darkorange;">Add Admin Form</h5></u>
-            <form action="addAdminForm.php" method="post" class="row g-3">
-              <div class="col-md-12">
-                <label for="validationDefault01" class="form-label" style="font-weight: bold; font-size: 16px; color: grey;"><i class="fa-solid fa-user-tie" style="margin: 0px 5px ;"></i>Admin name : </label>
-                <input name="name" type="text" class="form-control" id="validationDefault01" required>
-              </div>
-              <div class="col-md-12">
-                <label for="validationDefault02" class="form-label" style="font-weight: bold; font-size: 16px; color: grey;"><i class="fa-solid fa-lock" style="margin: 0px 5px;"></i>Admin password : </label>
-                <input name="pass" type="password" class="form-control" id="validationDefault02" required>
-              </div>
-              <div class="col-12">
-                <button class="btn btn-primary" type="submit" style="width: 125px; margin-top: 5px;  transition: all 0.5s;"><span style="  display: inline-block;
-  position: relative;
-  transition: 0.5s;">Add</span></button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="listSection">
-        <div class="card" style="background-color:white;">
-          <div class="card-body">
-            <u style="font-weight: bold; font-size: 23px; color:darkorange;"><h5 class="card-title" style="font-weight: bold; font-size: 23px; color:darkorange; ">Admin List</h5></u>
-            <ul class="list-group">
-              <?php
-              include_once '../configDatabase.php';
+    <ul class="list-group">
+      <h4></i>Manage Customer</h4>
 
-              $sql = "SELECT * FROM admin";
-              $result = $conn->query($sql);
-
-              if ($result->num_rows > 0) {
-                $adminData = array();
-                while($row = $result->fetch_assoc()) {
-                    $adminData[] = $row; 
-                }
-              }
-              foreach ($adminData as $admin) {
-                echo '<li class="list-group-item" style="display: flex; justify-content: space-between;"<span>' 
-                . $admin['admin_name'] . 
-                '</span><button class="removeAdmin btn btn-outline-danger" style="margin-right:20px;"data-adminId=' 
-                . $admin['admin_id'] . 
-                '>Remove</button>' .'</li>';
-              }
-              ?>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <?php
+      include "../../admin/configDatabase.php";
+      $sql = "SELECT id,username, email, register_time FROM user";
+      $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo '<li class="list-group-item">
+                        <div class="list-item">
+                            <p>Customer Name: ' . htmlspecialchars($row["username"]) . '</p>
+                            <span>Email: ' . htmlspecialchars($row["email"]) . '</span>
+                            <span>Register Time: ' . htmlspecialchars($row["register_time"]) . '</span>
+                            <button class="btn btn-primary" onclick="editUser(\'' . $row["id"] . '\')">Edit</button>
+                            <button class="btn btn-danger" onclick="deleteUser(\'' . $row["id"] . '\')">Delete</button>
+                        </div>
+                      </li>';
+            }
+        } else {
+            echo '<li class="list-group-item">No users found</li>';
+        }
+        $conn->close();
+        ?>
+      
+    </ul>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-            const removeButtons = document.querySelectorAll('.removeAdmin');
-            removeButtons.forEach(function(button) {
-                button.addEventListener('click', function() {
-                    const adminId = this.getAttribute('data-adminId');
-                    
-                    const xhr = new XMLHttpRequest();
-                    xhr.open('POST', 'removeAdmin.php', true);
-                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                    
-                    // xhr.onload = function() {
-                    //     if (xhr.status === 200) {
-                    //         alert(xhr.responseText); 
-                    //     } else {
-                    //         alert('Request failed. Returned status of ' + xhr.status);
-                    //     }
-                    // };
-                    xhr.send('adminId=' + encodeURIComponent(adminId));
-                    location.reload();
-                });
+      function editUser(userId) {
+        // Redirect to the edit page with the user ID as a query parameter
+        window.location.href = 'editUser.php?user_id=' + userId;
+    }
+      function deleteUser(userId) {
+        if (confirm('Are you sure you want to delete this user?')) {
+            $.ajax({
+                url: 'deleteUser.php',
+                type: 'post',
+                data: { user_id: userId },
+                success: function(response) {
+                    if (response == 'success') {
+                        location.reload();
+                    } else {
+                        alert('Failed to delete user');
+                    }
+                }
             });
+        }
+    }
     </script>
 </body>
 </html>

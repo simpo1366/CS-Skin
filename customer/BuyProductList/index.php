@@ -161,7 +161,7 @@
 
 </body>
 
-<!-- <script src="./index.js"></script> -->
+<script src="./index.js"></script>
 <script src="./utils/RenderProductDetails.js"></script>
 <script>
 function addToCart(productId) {

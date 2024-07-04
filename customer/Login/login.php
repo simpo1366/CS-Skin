@@ -60,7 +60,8 @@
             if($statement->fetch())
             {
                 if(password_verify($password, $stored_password))
-                {
+                {   
+                    $_SESSION["user_id"] = $id;
                     $_SESSION["id"] = $id;
                     $_SESSION["username"] = $username;
                     $_SESSION["email"] = $email;

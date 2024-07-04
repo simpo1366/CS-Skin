@@ -92,23 +92,8 @@
             border-bottom: 10px solid #ecedec;
             z-index: 1;
         }
-        .modal-box-body .addToCartBttn{
-            position: fixed;
-            background-color: #8f6fd0;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            outline: none;
-            width: 40%; /* Adjust the width to match the image */
-            padding: 10px 0; /* Adjust the padding to increase the height */
-            font-size: 16px; /* Adjust the font size if necessary */
-            font-weight: bold; /* Make the text bold */
-            margin-bottom: 10px;
-
-        }
         button:hover {
-            background-color: black;
+            background-color: #7b8186;
         }
     </style>
 </head>
@@ -141,7 +126,6 @@
                 echo '<div class="float-pointer" id="float-pointer"></div>';
                 echo '</div>';
                 echo '<p><strong>Price:</strong> <span>RM ' . htmlspecialchars($row['Product_price']) . '</span></p>';
-                echo '<button class="addToCartBttn" onclick="addToCart('. $id .')">Add to cart</button>';
                 echo '</div>';
             } else {
                 echo '<p>No product found.</p>';

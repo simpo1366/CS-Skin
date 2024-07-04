@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<?php
+include "../../admin/configDatabase.php";
+
+if (isset($_GET['user_id'])) {
+    $user_id = intval($_GET['user_id']);
+
+    // Fetch user data
+    $sql = "SELECT id, username, email, register_time FROM user WHERE id = ?";
+    if ($stmt = $conn->prepare($sql)) {
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+        $stmt->close();
+    } else {
+        die("Error preparing statement");
+    }
+} else {
+    die("User ID not specified");
+}
+
+$conn->close();
+?>
+
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +31,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <style>
       body{
     background-color: #F4F4FD;;
@@ -117,81 +142,22 @@ main .listSection{
         </div>
       </nav>
     <main>
-      <div class="formSection">
-        <div class="card" style="background-color:white;">
-          <div class="card-body">
-            
-            <u style="font-weight: bold; font-size: 23px; color:darkorange;"><h5 class="card-title" style="font-weight: bold; font-size: 23px; color:darkorange;">Add Admin Form</h5></u>
-            <form action="addAdminForm.php" method="post" class="row g-3">
-              <div class="col-md-12">
-                <label for="validationDefault01" class="form-label" style="font-weight: bold; font-size: 16px; color: grey;"><i class="fa-solid fa-user-tie" style="margin: 0px 5px ;"></i>Admin name : </label>
-                <input name="name" type="text" class="form-control" id="validationDefault01" required>
-              </div>
-              <div class="col-md-12">
-                <label for="validationDefault02" class="form-label" style="font-weight: bold; font-size: 16px; color: grey;"><i class="fa-solid fa-lock" style="margin: 0px 5px;"></i>Admin password : </label>
-                <input name="pass" type="password" class="form-control" id="validationDefault02" required>
-              </div>
-              <div class="col-12">
-                <button class="btn btn-primary" type="submit" style="width: 125px; margin-top: 5px;  transition: all 0.5s;"><span style="  display: inline-block;
-  position: relative;
-  transition: 0.5s;">Add</span></button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="listSection">
-        <div class="card" style="background-color:white;">
-          <div class="card-body">
-            <u style="font-weight: bold; font-size: 23px; color:darkorange;"><h5 class="card-title" style="font-weight: bold; font-size: 23px; color:darkorange; ">Admin List</h5></u>
-            <ul class="list-group">
-              <?php
-              include_once '../configDatabase.php';
-
-              $sql = "SELECT * FROM admin";
-              $result = $conn->query($sql);
-
-              if ($result->num_rows > 0) {
-                $adminData = array();
-                while($row = $result->fetch_assoc()) {
-                    $adminData[] = $row; 
-                }
-              }
-              foreach ($adminData as $admin) {
-                echo '<li class="list-group-item" style="display: flex; justify-content: space-between;"<span>' 
-                . $admin['admin_name'] . 
-                '</span><button class="removeAdmin btn btn-outline-danger" style="margin-right:20px;"data-adminId=' 
-                . $admin['admin_id'] . 
-                '>Remove</button>' .'</li>';
-              }
-              ?>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div class="container mt-5">
+        <h2>Edit User</h2>
+        <form action="updateUser.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+            <div class="form-group">
+                <label for="user_name">Username:</label>
+                <input type="text" class="form-control" id="user_name" name="username" value="<?php echo $user['username']; ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="<?php echo $user['email']; ?>" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top:20px;">Save Changes</button>
+        </form>
+    </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-            const removeButtons = document.querySelectorAll('.removeAdmin');
-            removeButtons.forEach(function(button) {
-                button.addEventListener('click', function() {
-                    const adminId = this.getAttribute('data-adminId');
-                    
-                    const xhr = new XMLHttpRequest();
-                    xhr.open('POST', 'removeAdmin.php', true);
-                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                    
-                    // xhr.onload = function() {
-                    //     if (xhr.status === 200) {
-                    //         alert(xhr.responseText); 
-                    //     } else {
-                    //         alert('Request failed. Returned status of ' + xhr.status);
-                    //     }
-                    // };
-                    xhr.send('adminId=' + encodeURIComponent(adminId));
-                    location.reload();
-                });
-            });
-    </script>
 </body>
 </html>
