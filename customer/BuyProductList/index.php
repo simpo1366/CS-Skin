@@ -394,7 +394,6 @@ h1{
   <div id="backdrop" class="backdrop"></div>
 
   <div id="main">
-      <button class="openbtn" onclick="openNav()">☰</button>
       <div id="backdrop" class="backdrop"></div>
   </div>
 
@@ -555,8 +554,6 @@ foreach ($categories as $category => $items) {
     </div>
 
     <!-- Optional: Bootstrap JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-gL2q5hOvK1l6XwRSazg7R1bmVtn9JLr7H6ONgkXuy/gYlV10Pb5vY0Y3tlz/vyNf" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-9F/UpnHwZ8KH2/GqSNFVn2EjsdPp5VtiE4Nb0QtI1b6O6FKolZ4+OJtfEQYmVFXt" crossorigin="anonymous"></script>
     <script src="../../admin/scripts.js"></script>
 
     <script>
@@ -603,6 +600,8 @@ foreach ($categories as $category => $items) {
 });
 
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-gL2q5hOvK1l6XwRSazg7R1bmVtn9JLr7H6ONgkXuy/gYlV10Pb5vY0Y3tlz/vyNf" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-9F/UpnHwZ8KH2/GqSNFVn2EjsdPp5VtiE4Nb0QtI1b6O6FKolZ4+OJtfEQYmVFXt" crossorigin="anonymous"></script>
         <script src="./index.js"></script>
         <script src="./utils/RenderProductDetails.js"></script>
         <script>
@@ -647,10 +646,3 @@ foreach ($categories as $category => $items) {
     </script>
 </div>
 <?php include "../Jesse's work/footer.php"; ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
