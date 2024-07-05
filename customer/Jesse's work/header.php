@@ -13,8 +13,8 @@ if (isset($_SESSION['id'])) {
 } else {
     $isLoggedIn = [];
 }
-// Note: Do not destroy the session here as it will log out the user
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

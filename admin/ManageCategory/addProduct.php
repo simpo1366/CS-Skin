@@ -2,35 +2,34 @@
 
 include "../configDatabase.php";
 
-// Define the function
-    // Validate and sanitize input
-    //$product_img = $_POST['productPic'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $productPic = $_FILES['productPic']['tmp_name'];
     $productName = $_POST['productName'];
     $mainCategory = $_POST['mainCategory'];
-    $subCategory = $_POST['subCategory'];
+    $subCategory = isset($_POST['subCategory']) ? $_POST['subCategory'] : NULL; 
     $rarity = $_POST['rarity'];
     $float = $_POST['float'];
+    $condition = $_POST['condition'];
     $price = $_POST['price'];
 
-    // // Prepare the SQL statement
-    // $sql = "INSERT INTO product_category(Product_img, Product_name, Product_main_category, Product_sub_category, Product_rarity, Product_float, Product_price)
-    //         VALUES ('$product_img', '$productName', '$mainCategory', '$subCategory', '$rarity', '$float', '$price')";
-    // // Execute the query
-    // $conn->query($sql);
+    $productPicContent = file_get_contents($productPic);
+    $null = NULL; 
 
-    if (isset($_FILES['productPic']) && $_FILES['productPic']['error'] == UPLOAD_ERR_OK) {
-        $imageData = file_get_contents($_FILES['productPic']['tmp_name']);
-        
-        // Prepare the SQL statement
-        $sql = $conn->prepare("INSERT INTO product_category (Product_img, Product_name, Product_main_category, Product_sub_category, Product_rarity, Product_float, Product_price)
-                               VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $sql->bind_param('bssssss', $imageData, $productName, $mainCategory, $subCategory, $rarity, $float, $price);
 
-        // Execute the query
-        $sql->send_long_data(0, $imageData);
-        $sql->execute();
-        $sql->close();
+    $stmt = $conn->prepare("INSERT INTO product_category (Product_img, Product_name, Product_main_category, Product_sub_category, Product_rarity, Product_float, Product_condition, Product_price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+
+    $stmt->bind_param("bsssssss", $null, $productName, $mainCategory, $subCategory, $rarity, $float, $condition, $price);
+    $stmt->send_long_data(0, $productPicContent); 
+
+    if ($stmt->execute()) {
+        echo "Product added successfully!";
+    } else {
+        echo "Error: " . $stmt->error;
     }
+
+    $stmt->close();
+    $conn->close();
+}
 
 //$conn->close();
 header("Location: index.php");

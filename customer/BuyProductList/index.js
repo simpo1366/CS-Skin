@@ -1,14 +1,3 @@
-const items = [{
-    id: 1,
-    itemName:'Headshot',
-    itemImage: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJegJK6d2yq5ODmOPLO7TdmVRd4cJ5nqfF8dWi0FfjrRFlYGyhI9DEJAc8Z13TrALswey508S-v8_JmyAw73Uk-z-DyPm3Zsr8',
-    itemCategory: 'Assault Rifles',
-    itemSubcategory: 'AK-47',
-    itemPrice:99.80,
-    itemFloat:0.41,
-}
-]
-
 // Function to sort items
 function sortItems(itemCategory, itemSubcategory = 'Any') {
     let sortedItems;
@@ -21,33 +10,6 @@ function sortItems(itemCategory, itemSubcategory = 'Any') {
     }
     renderItems(sortedItems);
 }
-
-// Function to render items
-// function renderItems(items) {
-//     const gridContainer = document.querySelector(".grid-container");
-//     gridContainer.innerHTML = ''; // Clear the container before adding new items
-
-//     let htmlString = '';
-//     let float;
-
-//     for (let i = 0; i < items.length; i++) {
-//         if (items[i].itemFloat <= 0.1) {
-//             float = 'FN';
-//         } else if (items[i].itemFloat <= 0.3) {
-//             float = 'MW';
-//         } else if (items[i].itemFloat <= 0.5) {
-//             float = 'FT';
-//         } else if (items[i].itemFloat <= 0.7) {
-//             float = 'WW';
-//         } else {
-//             float = 'BS';
-//         }
-
-//     }
-
-//     gridContainer.innerHTML = htmlString; // Insert the generated HTML into the container
-// }
-
 
 //side bar function
 function openNav() {
@@ -69,61 +31,64 @@ document.getElementById("backdrop").addEventListener("click", closeNav);
 
 
 
-//searchbar functions
-document.addEventListener("DOMContentLoaded", () => {
+// //searchbar functions
+// document.addEventListener("DOMContentLoaded", () => {
     
-    function sortItems(itemCategory, itemSubcategory = 'Any') {
-        let sortedItems;
+//     function sortItems(itemCategory, itemSubcategory = 'Any') {
+//         let sortedItems;
         
-        if (itemCategory === 'Any') {
-            sortedItems = items; // Display all items
-        } else if (itemSubcategory === 'Any') {
-            sortedItems = items.filter(item => item.itemCategory === itemCategory);
-        } else {
-            sortedItems = items.filter(item => item.itemCategory === itemCategory && item.itemSubcategory === itemSubcategory);
-        }
+//         if (itemCategory === 'Any') {
+//             sortedItems = items; // Display all items
+//         } else if (itemSubcategory === 'Any') {
+//             sortedItems = items.filter(item => item.itemCategory === itemCategory);
+//         } else {
+//             sortedItems = items.filter(item => item.itemCategory === itemCategory && item.itemSubcategory === itemSubcategory);
+//         }
         
-        renderItems(sortedItems);
-    }
+//         renderItems(sortedItems);
+//     }
 
-    // Function to search items
-    function searchItems(query) {
-        const searchQuery = query.toLowerCase();
-        const filteredItems = items.filter(item => item.itemName.toLowerCase().includes(searchQuery) ||
-        item.itemCategory.toLowerCase().includes(searchQuery) ||
-        item.itemSubcategory.toLowerCase().includes(searchQuery));
-        renderItems(filteredItems);/*searchItems(query) function now checks if the search query matches any part of the itemName, itemCategory, or itemSubcategory.*/
-    }
+//     // // Function to search items
+//     // function searchItems(query) {
 
-    // Example for main categories
-    const categoryButtons = document.querySelectorAll(".category-btn");
-    categoryButtons.forEach(button => {
-        button.addEventListener("click", (event) => {
-            const itemCategory = event.target.dataset.category;
-            sortItems(itemCategory, 'Any');
-        });
-    });
+//     //     let filteredItems;
+//     //     let searchQuery;
+//     //     searchQuery = query.toLowerCase();
+//     //     filteredItems = items.filter(item => item.itemName.toLowerCase().includes(searchQuery) ||
+//     //     item.itemCategory.toLowerCase().includes(searchQuery) ||
+//     //     item.itemSubcategory.toLowerCase().includes(searchQuery));
+//     //     renderItems(filteredItems);/*searchItems(query) function now checks if the search query matches any part of the itemName, itemCategory, or itemSubcategory.*/
+//     // }
 
-    // Example for subcategories
-    const subcategoryButtons = document.querySelectorAll(".subcategory-btn");
-    subcategoryButtons.forEach(button => {
-        button.addEventListener("click", (event) => {
-            const itemCategory = event.target.dataset.category;
-            const itemSubcategory = event.target.dataset.subcategory;
-            sortItems(itemCategory, itemSubcategory);
-        });
-    });
+//     // Example for main categories
+//     const categoryButtons = document.querySelectorAll(".category-btn");
+//     categoryButtons.forEach(button => {
+//         button.addEventListener("click", (event) => {
+//             const itemCategory = event.target.dataset.category;
+//             sortItems(itemCategory, 'Any');
+//         });
+//     });
 
-    // Event listener for the search bar
-    const searchBar = document.getElementById("searchBar");
-    searchBar.addEventListener("input", (event) => {
-        const searchQuery = event.target.value;
-        searchItems(searchQuery);
-    });
+//     // Example for subcategories
+//     const subcategoryButtons = document.querySelectorAll(".subcategory-btn");
+//     subcategoryButtons.forEach(button => {
+//         button.addEventListener("click", (event) => {
+//             const itemCategory = event.target.dataset.category;
+//             const itemSubcategory = event.target.dataset.subcategory;
+//             sortItems(itemCategory, itemSubcategory);
+//         });
+//     });
 
-    // Initial render
-    //renderItems(items);
-});
+//     // Event listener for the search bar
+//     // const searchBar = document.getElementById("searchBar");
+//     // searchBar.addEventListener("input", (event) => {
+//     //     const searchQuery = event.target.value;
+//     //     searchItems(searchQuery);
+//     // });
+
+//     // Initial render
+//     //renderItems(items);
+// });
 
 //toggle button colours function(retain button colors)
 var currentButton = null; // Track the currently yellow button
@@ -145,4 +110,9 @@ function toggleColor(button) {
     button.style.color = "black"; // Change text color to black
     currentButton = button; // Update the currently yellow button
   }
+}
+//simpo write
+function addToCart(id) {
+    // Add JavaScript code to handle the trade action
+    alert(`Product ${id} Added to cart!`);
 }
