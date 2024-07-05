@@ -230,6 +230,7 @@
         }
         
         .list-item p {
+            margin: auto 0;
             width: 19vw;
         }
         

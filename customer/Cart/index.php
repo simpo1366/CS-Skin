@@ -303,9 +303,11 @@
         .list-item {
             display: flex;
             justify-content: space-between;
+            
         }
         
         .list-item p {
+            margin: auto 0;
             width: 19vw;
         }
         
@@ -415,9 +417,9 @@
                                 <img src="data:image/jpeg;base64,' . $imageUrl . '" alt="' . $row["Product_name"] . '" style="width: 50px; height: 50px;">
                                 <p>' . $row["Product_name"] . '</p>
                                 <span class="price">Price : RM' . $row["Product_price"] . '</span>
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="reviewFromCart(' . $row["product_id"] . ')">REVIEW ITEM INFO</button>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="reviewFromCart(' . $row["product_id"] . ')">Review Item</button>
                                 <span>Quantity : ' . $row["quantity"] . '</span>
-                                <button class="btn btn-danger" onclick="deleteFromCart(' . $row["product_id"] . ')">DELETE FROM</button>
+                                <button class="btn btn-danger" onclick="deleteFromCart(' . $row["product_id"] . ')">Delete</button>
                             </div>
                         </li>';
                 }
