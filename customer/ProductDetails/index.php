@@ -95,6 +95,19 @@
             font-weight: bold; 
             margin-bottom: 10px;
         }
+        .modal-box-body .addToWishlistBttn {
+            background-color: lightcoral;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+            width: 100%; /* Adjust the width to match the image */
+            padding: 8px 0;
+            font-size: 16px; 
+            font-weight: bold; 
+            margin-bottom: 10px;
+        }
         button:hover {
             background-color: #7b8186;
         }
@@ -141,7 +154,8 @@
             echo '<div class="float-label" id="float-label" data-float="'. htmlspecialchars($row['Product_float']) .'"> ' . htmlspecialchars($row['Product_float']) . '</div>';
             echo '</div>';
             echo '<p><strong>Price:</strong> <span>RM ' . htmlspecialchars($row['Product_price']) . '</span></p>';
-            echo '<button class="addToCartBttn" onclick="addToCart('. $id .')">Add to cart</button>';
+            echo '<button class="addToCartBttn" onclick="addToCart('. $id .')">Add to Cart</button>';
+            echo '<button class="addToWishlistBttn" onclick="addToWishlist('. $id .')">Add to Wishlist</button>';
             echo '</div>';
         } else {
             echo '<p>No product found.</p>';

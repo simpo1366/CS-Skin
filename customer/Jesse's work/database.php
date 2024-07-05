@@ -1,8 +1,4 @@
 <?php
-
-function getDBConnection() 
-{
-
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -13,6 +9,4 @@ function getDBConnection()
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
-}
 ?>

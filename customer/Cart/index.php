@@ -1,10 +1,8 @@
-<?php
-    session_start();
-?>
+<?php include "../Jesse's work/header.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
@@ -14,7 +12,7 @@
     <title>Product and Services List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        body {
+        .body {
             margin: 0;
             width: 100%;
             background-color: rgba(37, 37, 32, 0.348);
@@ -103,7 +101,7 @@
             background-color: lightcyan;
         }
         /*sidebar*/
-        
+/*         
         .sidebar {
             height: 100%;
             width: 0;
@@ -143,7 +141,7 @@
             right: 25px;
             font-size: 36px;
             margin-left: 50px;
-        }
+        } */
         
         .openbtn {
             font-size: 20px;
@@ -189,12 +187,13 @@
         }
         
         /*search Cart*/
-        .searchCart {
-            height: 150px;
+        .searchCart{
+            margin-top: 30px;
+            height: 120px;
             background-color: grey;
             display: flex;
-            align-items: end;
-            justify-content: center;
+            align-items:end;
+            justify-content:center;
         }
         
         .searchBar #searchBar {
@@ -297,8 +296,8 @@
         /*list*/
         
         .list-group {
-            height: 70vh;
-            margin: 15px 15vw;
+            height: 40vh;
+            margin: 15px 5vw;
         }
         
         .list-item {
@@ -315,8 +314,9 @@
         }
         
         .checkOut {
-            margin: 15px 15vw;
+            margin: 15px 5vw;
             text-align: right;
+            padding-bottom: 20px;
         }
         
         .price {
@@ -329,6 +329,7 @@
         }
         main{
             margin: 0;
+            background-color: none;
         }
         .backdrop {
             position: fixed;
@@ -341,10 +342,10 @@
             display: none;
         }
     </style>
-</head>
+</div>
 
-<body  style="background-color: rgba(37, 37, 32, 0.348);">
-    <header class="websiteName">
+<div id="body"  style="background-color: rgba(37, 37, 32, 0.348);">
+    <!-- <header class="websiteName">
         <div class="headerLeftSection">
             <img src="https://www.7gone.com/public/images/6684d7654481632539ef0b583b141704.png" alt="CS SKINS WEBSITE">
             <h1>CS SKINS WEBSITE</h1>
@@ -353,7 +354,7 @@
         </div>
         <div class="loginNav">
         </div>
-    </header>
+    </header> -->
     <div class="searchCart">
         <div class="searchBar"><label for="searchBar" style="font-size: 18px;font-weight: bold;">Search Your
                 Item:</label><input id="searchBar" type="search"></div>
@@ -361,18 +362,18 @@
                     class="fa-solid fa-cart-shopping"></i></button></div>
     </div>
     <!--side bar-->
-    <div id="sidebar" class="sidebar">
+    <!-- <div id="sidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a class="homeNav" href="../Jesse's work/home.php"><i class="fa-solid fa-house"></i>Home</a>
       <a href="../BuyProductList" class="buyNav"><i class="fa-solid fa-cart-shopping"></i>Buy</a>
       <a href="../History" class="historyNav"><i class="fa-solid fa-clock-rotate-left"></i>History</a>
       <a href="../Jesse's work/aboutus.php" class="aboutNav"><i class="fa-solid fa-user-group"></i>About&nbsp;Us</a>
-  </div>
+  </div> -->
 
     <div id="backdrop" class="backdrop"></div>
 
     <div id="main">
-        <button class="openbtn" onclick="openNav()">☰</button>
+        <!-- <button class="openbtn" onclick="openNav()">☰</button> -->
         <div id="backdrop" class="backdrop"></div>
     </div>
     <main>
@@ -398,8 +399,11 @@
             $sql = "SELECT c.product_id, c.quantity, p.Product_name, p.Product_price, p.Product_img 
                     FROM carts c 
                     JOIN product_category p ON c.product_id = p.Product_id 
-                    WHERE c.user_id = '$user_id'";
-            $result = $conn->query($sql);
+                    WHERE c.user_id = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("i", $user_id);
+            $stmt->execute();
+            $result =  $stmt->get_result();
             $total = 0; // Initialize total
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -411,9 +415,9 @@
                                 <img src="data:image/jpeg;base64,' . $imageUrl . '" alt="' . $row["Product_name"] . '" style="width: 50px; height: 50px;">
                                 <p>' . $row["Product_name"] . '</p>
                                 <span class="price">Price : RM' . $row["Product_price"] . '</span>
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="reviewFromCart(' . $row["product_id"] . ')">review item page</button>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="reviewFromCart(' . $row["product_id"] . ')">REVIEW ITEM INFO</button>
                                 <span>Quantity : ' . $row["quantity"] . '</span>
-                                <button class="btn btn-danger" onclick="deleteFromCart(' . $row["product_id"] . ')">delete from cart</button>
+                                <button class="btn btn-danger" onclick="deleteFromCart(' . $row["product_id"] . ')">DELETE FROM</button>
                             </div>
                         </li>';
                 }
@@ -421,6 +425,7 @@
                 echo "<li class='list-group-item'>empty cart</li>";
             }
 
+            $stmt->close();
             $conn->close();
             ?>
 
@@ -428,7 +433,7 @@
         <div class="checkOut">
             <span>Total: RM <?php echo $total; ?></span>
             <form action="../CheckOut" method="POST">
-        <button type="submit" class="btn btn-success">CheckOut</button>
+        <button type="submit" class="btn btn-success">CHECK OUT</button>
     </form>
         </div>
     </main>
@@ -482,6 +487,12 @@
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-
-</html>
+</div>
+<?php include "../Jesse's work/footer.php"; ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

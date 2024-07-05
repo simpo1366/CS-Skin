@@ -111,6 +111,10 @@ function toggleColor(button) {
     currentButton = button; // Update the currently yellow button
   }
 }
+function addToWishlist(id) {
+  // Add JavaScript code to handle the trade action
+  alert(`Product ${id} Added to Wishlist!`);
+}
 //simpo write
 function addToCart(id) {
     // Add JavaScript code to handle the trade action

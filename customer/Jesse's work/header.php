@@ -6,8 +6,7 @@ if (isset($_SERVER['REQUEST_URI'])) {
 } else {
     $URI = '';
 }
-include 'database.php';
-$conn = getDBConnection(); 
+include "../Jesse's work/database.php";
 if (isset($_SESSION['id'])) {
     $isLoggedIn = $_SESSION;
 } else {
@@ -22,19 +21,20 @@ if (isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="../Jesse's work/header.css">
 </head>
 <body>
     <div class="bg-dark bg-gradient">
         <div class="container pb-3 pt-3">
             <div class="d-flex flex-wrap align-items-center justify-content-between">
-                <a href="home.php" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-                    <img src="images/Header/csgo_icon.png" alt="" width="100px">
+                <a href="../Jesse's work/home.php" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+                    <img src="../Jesse's work/images/Header/csgo_icon.png" alt="" width="100px">
                 </a>
                 <ul id="header-options" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 link-light">Catalog</a></li>
-                    <li><a href="#" class="nav-link px-2 link-light">Shopping Cart</a></li>
-                    <li><a href="wishlist.php" class="nav-link px-2 link-light">Wishlist</a></li>
+                    <li><a href="../BuyProductList/index.php" class="nav-link px-2 link-light">Catalog</a></li>
+                    <li><a href="../Cart/index.php" class="nav-link px-2 link-light">Shopping Cart</a></li>
+                    <li><a href="../Wishlist/wishlist.php" class="nav-link px-2 link-light">Wishlist</a></li>
+                    <li><a href="../Jesse's work/comments.php" class="nav-link px-2 link-light">Reviews</a></li>
                 </ul>
                 <form id="search" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                     <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
@@ -45,7 +45,7 @@ if (isset($_SESSION['id'])) {
                     </a>
                     <ul class="dropdown-menu text-small">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Orders</a></li>
+                        <li><a class="dropdown-item" href="../History/index.php">Order History</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="../Login/logout.php">Sign out</a></li>
                     </ul>
@@ -80,5 +80,4 @@ if (isset($_SESSION['id'])) {
                 }
             });
         </script>
-</body>
-</html>
+

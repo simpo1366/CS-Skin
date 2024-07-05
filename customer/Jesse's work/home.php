@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="home.css">
 
 </div>
-<body>
     <!-- Hottest Deals Section -->
     <div class="container">
         <h2 class="section-title">HOTTEST DEALS!</h2>

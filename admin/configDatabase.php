@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = ""; 
-$dbname = "CS-Skin_Admin"; 
+$dbname = "cs_skin"; 
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);

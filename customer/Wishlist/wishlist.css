@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'Stratum2-Black';
+    src: url(fonts/Stratum2-Black.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-image: url("../Jesse's work/images/Homepage/CS2_image.png");
+    background-size: cover;
+    background-position: center;
+    color: black;
+}
+
+.custom-font {
+    font-family: 'Stratum2-Black', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.container {
+    padding: 20px;
+}
+
+.card {
+    background-color: orange;
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.deleteFromWishlistbttn {
+    background-color: #ff6f61;
+    border: none;
+    margin: 5px 0px 5px 0px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.deleteFromWishlistbttn:hover {
+    background-color: #ff5a4a;
+}
+
+.addToCartBttn {
+    background-color: lightgreen;
+    border:none;
+    margin: 5px 0px 5px 0px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.addToCartBttn:hover {
+    background-color: green;
+}
+
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}
+
+.grid-container {
+    position: relative;
+    top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 30px; /* Optional: Adds space between the grid items */
+    margin-left: auto;
+    margin-right: auto;
+}

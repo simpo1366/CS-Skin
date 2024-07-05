@@ -28,7 +28,7 @@
 
     if(isset($_Session["email"]))
     {
-        header("location:Login/login.php");
+        header("location:../Login/login.php");
         exit;
     }
 
@@ -115,7 +115,7 @@
 
             $statement->close();
             
-            header("location:login.php");
+            header("location:../Login/login.php");
           
         }
     }

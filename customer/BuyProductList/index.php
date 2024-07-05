@@ -1,15 +1,11 @@
 <?php
-    session_start();
-    include "../../admin/configDatabase.php";
+    include "../Jesse's work/header.php";
 
     $sql = "SELECT Product_id, Product_img, Product_name, Product_main_category, Product_sub_category, Product_rarity, Product_float, Product_condition, Product_price 
         FROM product_category";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Product List</title>
@@ -191,7 +187,7 @@ h1{
 }
 
 .dropbtn {/*change*/
-    background-color: #white;
+    background-color: white;
     color: black;
     border-radius: 5px;
     padding: 15px 10px;
@@ -308,10 +304,11 @@ h1{
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     gap: 30px; /* Optional: Adds space between the grid items */
     margin-left: 80px;
     margin-right: 80px;
+    margin-bottom: 40px;
 }
 .grid-item {
     background-color: rgb(96, 90, 83);
@@ -363,13 +360,14 @@ h1{
     transition: background-color 0.5s ease;
 
 }
+
 </style>
-</head>
+</div>
 
 
-<body style="background-color: rgba(37, 37, 32, 0.348);">
+<div style="background-color: rgba(37, 37, 32, 0.348);">
     <!--header-->
-    <header class="websiteName"> 
+    <!-- <header class="websiteName"> 
         <div class="headerLeftSection">
             <img src="https://www.7gone.com/public/images/6684d7654481632539ef0b583b141704.png" alt="CS SKINS WEBSITE">
             <h1>CS SKINS WEBSITE</h1>
@@ -377,21 +375,20 @@ h1{
 
         <div class="loginNav">
         </div>
-    </header>
+    </header> -->
 
     <!--side bar-->
-    <div id="sidebar" class="sidebar">
+    <!-- <div id="sidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a class="homeNav" href="../Jesse's work/home.php"><i class="fa-solid fa-house"></i>Home</a>
       <a href="../BuyProductList" class="buyNav"><i class="fa-solid fa-cart-shopping"></i>Buy</a>
       <a href="../History" class="historyNav"><i class="fa-solid fa-clock-rotate-left"></i>History</a>
       <a href="../Jesse's work/aboutus.php" class="aboutNav"><i class="fa-solid fa-user-group"></i>About&nbsp;Us</a>
-  </div>
+    </div> -->
 
   <!--Search Cart-->
   <div class="searchCart">
         <div class="searchBar"><label for="searchBar" style="font-size: 18px;font-weight: bold;">Search Your Item:</label><input id="searchBar" type="search"></div>
-        <div class="cart"><a href="../Cart/index.php"><button style="font-size: 15pt;font-weight: bold;">Your Cart<i class="fa-solid fa-cart-shopping"></i></a></button></div>
     </div>
 
   <div id="backdrop" class="backdrop"></div>
@@ -564,7 +561,12 @@ foreach ($categories as $category => $items) {
 
     <script>
        document.addEventListener("DOMContentLoaded", function() {
-    const dropdowns = document.querySelectorAll('.dropdown');
+        let dropdowns = document.querySelectorAll('.dropdown');
+        // Convert NodeList to an array
+        dropdowns = Array.from(dropdowns);
+
+        // Remove the first element from the array
+        dropdowns.shift();
 
     dropdowns.forEach(dropdown => {
         const btn = dropdown.querySelector('.dropbtn');
@@ -607,27 +609,48 @@ foreach ($categories as $category => $items) {
 
         //add to cart function
         function addToCart(productId) {
+            const quantity = 1;
+            const userId = <?php echo $_SESSION['user_id']; ?>; 
 
-        const quantity = 1;
-        const userId = <?php $_SESSION['user_id'] = 1;echo $_SESSION['user_id']; ?>; 
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '../cart/addToCart.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '../cart/addToCart.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                alert(`Product ${productId} Added to cart!`);
-            } else {
-                alert('Error adding product to cart.');
-            }
-        };
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    alert(`Product ${productId} Added to cart!`);
+                } else {
+                    alert('Error adding product to cart.');
+                }
+            };
 
         xhr.send(`product_id=${productId}&quantity=${quantity}&user_id=${userId}`);
-    }
+        }
 
+        //add to wishlist function
+        function addToWishlist(productId) {
+            const userId = <?php echo $_SESSION['user_id']; ?>;
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '../wishlist/addToWishlist.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    alert(`Product ${productId} Added to wishlist!`);
+                } else {
+                    alert('Error adding product to wishlist.');
+                }
+            };
+
+            xhr.send(`product_id=${productId}&user_id=${userId}`);
+        }
     </script>
+</div>
+<?php include "../Jesse's work/footer.php"; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-</body>
-</html>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
