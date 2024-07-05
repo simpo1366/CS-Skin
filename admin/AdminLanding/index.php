@@ -62,15 +62,25 @@
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                         <a class="navbar-brand" href="#" style="color:white; font-weight:700;">ADMIN</a>
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">Home</a> <!--change-->
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" aria-current="page">Profile</a> <!--change-->
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../ManageAdmin/index.php" aria-current="page">Manage Admin</a> <!--change-->
-                            </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../AdminLanding" >Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../ManageAdmin" >Manage Admin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../ManageCustomer">Manage Customer</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../ManageOrder">Manage Order</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../ManageCategory">Manage Category</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"href="../salesReport.php" >Review Sales Report</a>
+              </li>
+            </ul>
                     </div>
                 </div>
             </nav>

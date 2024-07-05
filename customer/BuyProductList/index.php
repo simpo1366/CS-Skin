@@ -376,17 +376,16 @@ h1{
         </div>       
 
         <div class="loginNav">
-            <button id="loginBttn">Login</button>
         </div>
     </header>
 
     <!--side bar-->
     <div id="sidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a class="homeNav" href="#"><i class="fa-solid fa-house"></i>Home</a>
-      <a href="#" class="buyNav"><i class="fa-solid fa-cart-shopping"></i>Buy</a>
-      <a href="#" class="historyNav"><i class="fa-solid fa-clock-rotate-left"></i>History</a>
-      <a href="#" class="aboutNav"><i class="fa-solid fa-user-group"></i>About&nbsp;Us</a>
+      <a class="homeNav" href="../Jesse's work/home.php"><i class="fa-solid fa-house"></i>Home</a>
+      <a href="../BuyProductList" class="buyNav"><i class="fa-solid fa-cart-shopping"></i>Buy</a>
+      <a href="../History" class="historyNav"><i class="fa-solid fa-clock-rotate-left"></i>History</a>
+      <a href="../Jesse's work/aboutus.php" class="aboutNav"><i class="fa-solid fa-user-group"></i>About&nbsp;Us</a>
   </div>
 
   <!--Search Cart-->

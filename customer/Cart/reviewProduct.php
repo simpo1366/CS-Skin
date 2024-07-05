@@ -110,7 +110,20 @@
             if ($result->num_rows > 0) {
 
                 $row = $result->fetch_assoc();
-        
+                if ($row['Product_float'] >= 0.45) {
+                    $color = 'red';
+                }
+                elseif ($row['Product_float'] >= 0.38) {
+                    $color = 'orange';
+                }
+                elseif ($row['Product_float'] >= 0.15) {
+                    $color = 'yellow';
+                }
+                elseif ($row['Product_float'] >= 0.07) {
+                    $color = 'lightgreen';
+                } else {
+                    $color = '#ADD8E6';
+                }
                 echo '<div class="modal-box-header">';
                 echo '<img src="data:image/jpeg;base64,' . base64_encode($row['Product_img']) . '" alt="' . htmlspecialchars($row['Product_name']) .'">';
                 echo '</div>';
@@ -121,7 +134,7 @@
                 echo '<p><strong>Float Value:</strong> <span>' . htmlspecialchars($row['Product_float']) . '</span></p>';
                 echo '<p><strong>Rarity:</strong> <span>' . htmlspecialchars($row['Product_rarity']) . '</span></p>';
                 echo '<div class="float-container">';
-                echo '<div class="float-bar" id="float-bar"></div>';
+                echo '<div class="float-bar" id="float-bar" style="background-color: ' . $color . ';width:300px;"></div>';
                 echo '<div class="float-label" id="float-label" data-float="'. $row['Product_float'] .' "> ' . htmlspecialchars($row['Product_float']) . '</div>';
                 echo '<div class="float-pointer" id="float-pointer"></div>';
                 echo '</div>';

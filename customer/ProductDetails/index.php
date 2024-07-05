@@ -65,6 +65,7 @@
             border-radius: 5px;
             overflow: hidden;
             height: 20px;
+            width: 300px;
             margin: 10px 0;
             position: relative;
         }

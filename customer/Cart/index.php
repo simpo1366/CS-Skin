@@ -330,41 +330,44 @@
         main{
             margin: 0;
         }
+        .backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            display: none;
+        }
     </style>
 </head>
 
-<body>
+<body  style="background-color: rgba(37, 37, 32, 0.348);">
     <header class="websiteName">
         <div class="headerLeftSection">
             <img src="https://www.7gone.com/public/images/6684d7654481632539ef0b583b141704.png" alt="CS SKINS WEBSITE">
             <h1>CS SKINS WEBSITE</h1>
         </div>
         <div class="headerRightSection">
-            <nav><a href="../Home/">Home</a></nav>
-            <nav><a href="#">Market</a></nav>
-            <nav><a href="#">About Us</a></nav>
-            <nav><a href="#">Join Us</a></nav>
         </div>
         <div class="loginNav">
-            <button id="loginBttn">Login</button>
-            <button id="signUpBttn">Sign Up</button>
         </div>
     </header>
     <div class="searchCart">
         <div class="searchBar"><label for="searchBar" style="font-size: 18px;font-weight: bold;">Search Your
                 Item:</label><input id="searchBar" type="search"></div>
-        <div class="cart"><button style="font-size: 15pt;font-weight: bold;">Your Cart<i
+        <div class="cart"><button style="font-size: 15pt;font-weight: bold;" onclick="location.href='../Cart'">Your Cart<i
                     class="fa-solid fa-cart-shopping"></i></button></div>
     </div>
     <!--side bar-->
     <div id="sidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a class="homeNav" href="#"><i class="fa-solid fa-house"></i>Home</a>
-        <a href="#" class="buyNav"><i class="fa-solid fa-cart-shopping"></i>Buy</a>
-        <a href="sellpage.html" class="sellNav"><i class="fa-solid fa-sack-dollar"></i>Sell</a>
-        <a href="#" class="historyNav"><i class="fa-solid fa-clock-rotate-left"></i>History</a>
-        <a href="#" class="aboutNav"><i class="fa-solid fa-user-group"></i>About&nbsp;Us</a>
-    </div>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a class="homeNav" href="../Jesse's work/home.php"><i class="fa-solid fa-house"></i>Home</a>
+      <a href="../BuyProductList" class="buyNav"><i class="fa-solid fa-cart-shopping"></i>Buy</a>
+      <a href="../History" class="historyNav"><i class="fa-solid fa-clock-rotate-left"></i>History</a>
+      <a href="../Jesse's work/aboutus.php" class="aboutNav"><i class="fa-solid fa-user-group"></i>About&nbsp;Us</a>
+  </div>
 
     <div id="backdrop" class="backdrop"></div>
 

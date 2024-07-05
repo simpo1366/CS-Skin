@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,20 +95,23 @@ main .listSection{
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a class="navbar-brand" href="#" style="color:white; font-weight:700;">ADMIN</a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#" >Manage Admin</a>
+                          <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../AdminLanding" >Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Manage Order</a>
+                <a class="nav-link" aria-current="page" href="../ManageAdmin" >Manage Admin</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" >Manage Category</a>
+                <a class="nav-link" href="../ManageCustomer">Manage Customer</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" >Manage Product</a>
+                <a class="nav-link" href="../ManageOrder">Manage Order</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" >Manage Customer</a>
+                <a class="nav-link" href="../ManageCategory">Manage Category</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"href="../salesReport.php" >Review Sales Report</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -122,7 +126,7 @@ main .listSection{
 
 <?php
 include "../../admin/configDatabase.php";
-session_start();
+
 
 $user_id = $_SESSION['user_id'] ?? 1;
 $sql = "SELECT o.order_id,o.order_date, o.total, o.status, u.username, p.Product_name, p.Product_img, p.Product_price
