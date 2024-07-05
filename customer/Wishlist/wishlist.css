@@ -28,6 +28,14 @@ body {
     color: black;
     border: none;
     border-radius: 5px;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; /* Add transition for smooth effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increased initial shadow */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Scale the card up on hover */
+    background-color: darkorange; /* Change background color on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
 }
 
 .card-title {
@@ -57,7 +65,7 @@ body {
 
 .addToCartBttn {
     background-color: lightgreen;
-    border:none;
+    border: none;
     margin: 5px 0px 5px 0px;
     border-radius: 5px;
     width: 100%;
