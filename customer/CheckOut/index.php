@@ -249,7 +249,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color: rgba(37, 37, 32, 0.348);">
 <header class="websiteName">
         <div class="headerLeftSection">
             <img src="https://www.7gone.com/public/images/6684d7654481632539ef0b583b141704.png" alt="CS SKINS WEBSITE">

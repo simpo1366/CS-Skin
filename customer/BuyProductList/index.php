@@ -514,8 +514,8 @@ foreach ($categories as $category => $items) {
 
     // Display products based on current sorting parameters
     if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['mainCategory']) && isset($_GET['subCategory'])) {
-    $mainCategory = $_GET['mainCategory'];
-    $subCategory = $_GET['subCategory'];
+    $mainCategory = $_GET['mainCategory'] ?? 'Any';
+    $subCategory = $_GET['subCategory'] ?? 'Any';
 
     // Fetch products based on selected categories
     $products = fetchProducts($conn, $mainCategory, $subCategory);
