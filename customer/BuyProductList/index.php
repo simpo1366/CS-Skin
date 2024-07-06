@@ -13,9 +13,12 @@
     <style>
 
 body{
-    margin:0;
+    background-image: url("../Jesse's work/images/Homepage/CS2_image.png");
+    background-size: cover;
+    background-position: center;
+    color: black;
+    font-family: 'Stratum2-Black';
     width: 100%;
-    font-family: Arial, sans-serif;
 }
 h1{
     margin: 0;

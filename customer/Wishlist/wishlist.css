@@ -10,6 +10,11 @@ body {
     background-size: cover;
     background-position: center;
     color: black;
+    font-family: 'Stratum2-Black';
+    width: 100%;
+}
+.body {
+    font-family: 'Stratum2-Black';
 }
 
 .custom-font {

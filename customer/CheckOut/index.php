@@ -1,21 +1,41 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<?php include "../Jesse's work/header.php"; ?>
+<div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Product and Services List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-    body{
-    margin:0;
-    width: 100%;
-    background-color: rgba(37, 37, 32, 0.348);
-    }
-        h1{
+        @font-face {
+            font-family: 'Stratum2-Black';
+            src: url("../Jesse's work/fonts/Stratum2-Black.otf");
+            font-weight: normal;
+            font-style: normal;
+        }
+        .body{
             margin: 0;
+            width: 100%;
+            background-color: rgba(37, 37, 32, 0.348);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Stratum2-Black';
+        }
+        body {
+            background-image: url("../Jesse's work/images/Homepage/CS2_image.png");
+            font-family: 'Stratum2-Black';
+        }
+        #body{
+            padding-bottom: 20px;
+            margin-bottom: 100px;
+        }
+        .ph1{
+            margin: 40px 0px 30px 0px;
+            font-family: 'Stratum2-Black';
+        }
+        h4 {
+            color: white;
+            font-family: 'Stratum2-Black';
         }
         .websiteName{
             background-color: black;
@@ -124,8 +144,8 @@
         .hidden {
             display: none;
         }
-                /*sidebar*/
-                .sidebar {
+        /*sidebar*/
+        /* .sidebar {
             height: 100%;
             width: 0;
             position: fixed;
@@ -136,8 +156,8 @@
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;
-        }        
-        .sidebar i {
+        }         */
+        /* .sidebar i {
             margin-right: 20px;
             margin-left: 20px;
             position: relative;
@@ -163,7 +183,7 @@
             right: 25px;
             font-size: 36px;
             margin-left: 50px;
-        }
+        } */
         
         .openbtn {
             font-size: 20px;
@@ -203,7 +223,7 @@
             z-index: 1;
             display: none;
         }
-        .container { width: 65%; margin: auto; }
+        .container { width: 90%; margin: auto; }
         .cart { margin-bottom: 20px; }
         .cart table { width: 100%; border-collapse: collapse; }
         .cart table, .cart th, .cart td { border: 1px solid black; }
@@ -230,7 +250,6 @@
         }
         
         .list-item p {
-            margin: auto 0;
             width: 19vw;
         }
         
@@ -249,154 +268,156 @@
             margin:0;
         }
     </style>
-</head>
-<body style="background-color: rgba(37, 37, 32, 0.348);">
-<header class="websiteName">
-        <div class="headerLeftSection">
-            <img src="https://www.7gone.com/public/images/6684d7654481632539ef0b583b141704.png" alt="CS SKINS WEBSITE">
-            <h1>CS SKINS WEBSITE</h1>
-        </div>
-        <div class="headerRightSection">
-            <nav><a href="../Home/">Home</a></nav>
-            <nav><a href="#">Market</a></nav>
-            <nav><a href="#">About Us</a></nav>
-            <nav><a href="#">Join Us</a></nav>
-        </div>
-        <div class="loginNav">
-            <button id="loginBttn">Login</button>
-            <button id="signUpBttn">Sign Up</button>
-        </div>
-    </header>
+</div>
+<h1 class="ph1">CHECK OUT</h1>
 
-    <div class="searchCart">
-        <div class="searchBar"><label for="searchBar" style="font-size: 18px;font-weight: bold;">Search Your
-                Item:</label><input id="searchBar" type="search"></div>
-        <div class="cart"><button style="font-size: 15pt;font-weight: bold;">Your Cart<i
-                    class="fa-solid fa-cart-shopping"></i></button></div>
-    </div>
-    <!--side bar-->
-    <div id="sidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a class="homeNav" href="#"><i class="fa-solid fa-house"></i>Home</a>
-        <a href="#" class="buyNav"><i class="fa-solid fa-cart-shopping"></i>Buy</a>
-        <a href="sellpage.html" class="sellNav"><i class="fa-solid fa-sack-dollar"></i>Sell</a>
-        <a href="#" class="historyNav"><i class="fa-solid fa-clock-rotate-left"></i>History</a>
-        <a href="#" class="aboutNav"><i class="fa-solid fa-user-group"></i>About&nbsp;Us</a>
-    </div>
+<div id="body" style="background-color: rgba(37, 37, 32, 0.8);">
+    <!-- <header class="websiteName">
+            <div class="headerLeftSection">
+                <img src="https://www.7gone.com/public/images/6684d7654481632539ef0b583b141704.png" alt="CS SKINS WEBSITE">
+                <h1>CS SKINS WEBSITE</h1>
+            </div>
+            <div class="headerRightSection">
+                <nav><a href="../Home/">Home</a></nav>
+                <nav><a href="#">Market</a></nav>
+                <nav><a href="#">About Us</a></nav>
+                <nav><a href="#">Join Us</a></nav>
+            </div>
+            <div class="loginNav">
+                <button id="loginBttn">Login</button>
+                <button id="signUpBttn">Sign Up</button>
+            </div>
+        </header> -->
 
-    <div id="backdrop" class="backdrop"></div>
+        <!-- <div class="searchCart">
+            <div class="searchBar"><label for="searchBar" style="font-size: 18px;font-weight: bold;">Search Your
+                    Item:</label><input id="searchBar" type="search"></div>
+            <div class="cart"><button style="font-size: 15pt;font-weight: bold;">Your Cart<i
+                        class="fa-solid fa-cart-shopping"></i></button></div>
+        </div> -->
+        <!--side bar-->
+        <!-- <div id="sidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="homeNav" href="#"><i class="fa-solid fa-house"></i>Home</a>
+            <a href="#" class="buyNav"><i class="fa-solid fa-cart-shopping"></i>Buy</a>
+            <a href="sellpage.html" class="sellNav"><i class="fa-solid fa-sack-dollar"></i>Sell</a>
+            <a href="#" class="historyNav"><i class="fa-solid fa-clock-rotate-left"></i>History</a>
+            <a href="#" class="aboutNav"><i class="fa-solid fa-user-group"></i>About&nbsp;Us</a>
+        </div> -->
 
-    <div id="main">
-        <button class="openbtn" onclick="openNav()">☰</button>
         <div id="backdrop" class="backdrop"></div>
-    </div>    
 
-    
-<div class="container">
-<ul class="list-group">
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" id="productModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Product Details</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            ...
+        <div id="main">
+            <!-- <button class="openbtn" onclick="openNav()">☰</button> -->
+            <div id="backdrop" class="backdrop"></div>
+        </div>    
+
+        
+    <div class="container">
+    <ul class="list-group">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" id="productModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Product Details</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <h4><i class="fa-solid fa-money-bill-1"></i></i>Cash Out</h4>
-            
-            <?php
-            include "../../admin/configDatabase.php";
-            $user_id = $_SESSION['user_id'];
-            $sql = "SELECT c.product_id, c.quantity, p.Product_name, p.Product_price, p.Product_img 
-                    FROM carts c 
-                    JOIN product_category p ON c.product_id = p.Product_id 
-                    WHERE c.user_id = '$user_id'";
-            $result = $conn->query($sql);
-            $total = 0; // Initialize total
-            $cartItems = [];
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $imageUrl = base64_encode($row['Product_img']);
-                    $itemTotal = $row["Product_price"] * $row["quantity"];
-                    $total += $itemTotal;
-                    $cartItems[] = [
-                        'product_id' => $row["product_id"],
-                        'product_name' => $row["Product_name"],
-                        'product_price' => $row["Product_price"],
-                        'quantity' => $row["quantity"],
-                        'item_total' => $itemTotal
-                    ];
-                    echo '<li class="list-group-item">
-                            <div class="list-item">
-                                <img src="data:image/jpeg;base64,' . $imageUrl . '" alt="' . $row["Product_name"] . '" style="width: 50px; height: 50px;">
-                                <p>' . $row["Product_name"] . '</p>
-                                <span class="price">Price : RM' . $row["Product_price"] . '</span>
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="reviewFromCart(' . $row["product_id"] . ')">review item page</button>
-                                <span>Quantity : ' . $row["quantity"] . '</span>
-                            </div>
-                        </li>';
+                <h4><i class="fa-solid fa-money-bill-1"></i></i>Cash Out</h4>
+                
+                <?php
+                include "../../admin/configDatabase.php";
+                $user_id = $_SESSION['user_id'];
+                $sql = "SELECT c.product_id, c.quantity, p.Product_name, p.Product_price, p.Product_img 
+                        FROM carts c 
+                        JOIN product_category p ON c.product_id = p.Product_id 
+                        WHERE c.user_id = '$user_id'";
+                $result = $conn->query($sql);
+                $total = 0; // Initialize total
+                $cartItems = [];
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $imageUrl = base64_encode($row['Product_img']);
+                        $itemTotal = $row["Product_price"] * $row["quantity"];
+                        $total += $itemTotal;
+                        $cartItems[] = [
+                            'product_id' => $row["product_id"],
+                            'product_name' => $row["Product_name"],
+                            'product_price' => $row["Product_price"],
+                            'quantity' => $row["quantity"],
+                            'item_total' => $itemTotal
+                        ];
+                        echo '<li class="list-group-item">
+                                <div class="list-item">
+                                    <img src="data:image/jpeg;base64,' . $imageUrl . '" alt="' . $row["Product_name"] . '" style="width: 50px; height: 50px;">
+                                    <p>' . $row["Product_name"] . '</p>
+                                    <span class="price">Price : RM' . $row["Product_price"] . '</span>
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="reviewFromCart(' . $row["product_id"] . ')">review item page</button>
+                                    <span>Quantity : ' . $row["quantity"] . '</span>
+                                </div>
+                            </li>';
+                    }
+                } else {
+                    echo "<li class='list-group-item'>empty cart</li>";
                 }
-            } else {
-                echo "<li class='list-group-item'>empty cart</li>";
+
+                $conn->close();
+                ?>
+
+            </ul>
+
+        <div class="payment">
+            <h2>Payment Information</h2>
+            <form action="submitInformation.php" method="post" onsubmit="return validateForm()">
+                <input type="text" name="name_on_card" placeholder="Name on Card" required>
+                <p class="error"></p>
+                <input type="text" name="card_number" placeholder="Card Number" required>
+                <p class="error"></p>
+                <input type="text" name="expiry_date" placeholder="Expiry Date (MM/YY)" required>
+                <p class="error"></p>
+                <input type="text" name="cvv" placeholder="CVV" required>
+                <p class="error"></p>
+                <input class="btn btn-outline-success" type="submit" value="Submit Payment Info">
+            </form>
+        </div>
+        <div class="payment">
+        <div class="CheckOutInfo">
+                <h5>
+                Check Out Info:
+                </h5>
+                <p>Payment Type: Credit Card</p>
+                <p>Name on Card: <?php echo isset($_SESSION['name_on_card']) ? $_SESSION['name_on_card'] : ''; ?></p>
+                <p>Card Number: <?php echo isset($_SESSION['card_number']) ? $_SESSION['card_number'] : ''; ?></p>
+                <p>Product subtotal: RM<?php echo $total; ?></p>
+                <p>Service Tax (6%): RM<?php echo $total * 0.06; ?></p>
+                <p>Total Payment: RM<?php echo $total * 1.06; ?></p>
+        </div>
+        </div>
+        <div class="checkOut">
+            <button class="btn btn-warning" onclick="location.href='../Cart'">Back To Cart</button>
+            <form action="Checkout.php" method="post">
+            <?php
+            // Add hidden inputs for each cart item
+            foreach ($cartItems as $index => $item) {
+                echo '<input type="hidden" name="cart_items[' . $index . '][product_id]" value="' . $item['product_id'] . '">';
+                echo '<input type="hidden" name="cart_items[' . $index . '][product_name]" value="' . $item['product_name'] . '">';
+                echo '<input type="hidden" name="cart_items[' . $index . '][product_price]" value="' . $item['product_price'] . '">';
+                echo '<input type="hidden" name="cart_items[' . $index . '][quantity]" value="' . $item['quantity'] . '">';
+                echo '<input type="hidden" name="cart_items[' . $index . '][item_total]" value="' . $item['item_total'] . '">';
             }
-
-            $conn->close();
             ?>
-
-          </ul>
-
-    <div class="payment">
-        <h2>Payment Information</h2>
-        <form action="submitInformation.php" method="post" onsubmit="return validateForm()">
-            <input type="text" name="name_on_card" placeholder="Name on Card" required>
-            <p class="error"></p>
-            <input type="text" name="card_number" placeholder="Card Number" required>
-            <p class="error"></p>
-            <input type="text" name="expiry_date" placeholder="Expiry Date (MM/YY)" required>
-            <p class="error"></p>
-            <input type="text" name="cvv" placeholder="CVV" required>
-            <p class="error"></p>
-            <input class="btn btn-outline-success" type="submit" value="Submit Payment Info">
-        </form>
-    </div>
-    <div class="payment">
-    <div class="CheckOutInfo">
-            <h5>
-               Check Out Info:
-            </h5>
-            <p>Payment Type: Credit Card</p>
-            <p>Name on Card: <?php echo isset($_SESSION['name_on_card']) ? $_SESSION['name_on_card'] : ''; ?></p>
-            <p>Card Number: <?php echo isset($_SESSION['card_number']) ? $_SESSION['card_number'] : ''; ?></p>
-            <p>Product subtotal: RM<?php echo $total; ?></p>
-            <p>Service Tax (6%): RM<?php echo $total * 0.06; ?></p>
-            <p>Total Payment: RM<?php echo $total * 1.06; ?></p>
-    </div>
-    </div>
-    <div class="checkOut">
-        <button class="btn btn-warning" onclick="location.href='../Cart'">Back To Cart</button>
-        <form action="Checkout.php" method="post">
-        <?php
-        // Add hidden inputs for each cart item
-        foreach ($cartItems as $index => $item) {
-            echo '<input type="hidden" name="cart_items[' . $index . '][product_id]" value="' . $item['product_id'] . '">';
-            echo '<input type="hidden" name="cart_items[' . $index . '][product_name]" value="' . $item['product_name'] . '">';
-            echo '<input type="hidden" name="cart_items[' . $index . '][product_price]" value="' . $item['product_price'] . '">';
-            echo '<input type="hidden" name="cart_items[' . $index . '][quantity]" value="' . $item['quantity'] . '">';
-            echo '<input type="hidden" name="cart_items[' . $index . '][item_total]" value="' . $item['item_total'] . '">';
-        }
-        ?>
-        <input type="hidden" name="total" value="<?php echo $total; ?>">
-        <button type="submit" class="btn btn-success">Cash Out</button>
-        </form>
+            <input type="hidden" name="total" value="<?php echo $total; ?>">
+            <button type="submit" class="btn btn-success">Cash Out</button>
+            </form>
+        </div>
     </div>
 </div>
 
-</body>
     <script>
         function reviewFromCart(productId) {
             const modalBody = document.querySelector(".modal-body");
@@ -477,6 +498,4 @@
             return isValid;
         }
     </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-</html>
+<?php include "../Jesse's work/footer.php"; ?>

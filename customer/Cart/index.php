@@ -1,6 +1,4 @@
 <?php include "../Jesse's work/header.php"; ?>
-<!DOCTYPE html>
-<html lang="en">
 
 <div>
     <meta charset="UTF-8">
@@ -17,11 +15,17 @@
             width: 100%;
             background-color: rgba(37, 37, 32, 0.348);
         }
-        
-        h1 {
-            margin: 0;
+        .ph1 {
+            margin-top: 40px;
         }
-        
+        body {
+            background-image: url("../Jesse's work/images/Homepage/CS2_image.png");
+            background-size: cover;
+            background-position: center;
+            color: black;
+            font-family: 'Stratum2-Black';
+            width: 100%;
+        }
         .websiteName {
             background-color: black;
             text-align: right;
@@ -159,6 +163,7 @@
         #main {
             transition: margin-left .2s;
             padding: 16px;
+            margin-top: 70px;
         }
         
         @media screen and (max-height: 450px) {
@@ -303,7 +308,6 @@
         .list-item {
             display: flex;
             justify-content: space-between;
-            
         }
         
         .list-item p {
@@ -346,6 +350,7 @@
     </style>
 </div>
 
+<h1 class="ph1">MY SHOPPING CART</h1>
 <div id="body"  style="background-color: rgba(37, 37, 32, 0.348);">
     <!-- <header class="websiteName">
         <div class="headerLeftSection">
@@ -357,12 +362,12 @@
         <div class="loginNav">
         </div>
     </header> -->
-    <div class="searchCart">
+    <!-- <div class="searchCart">
         <div class="searchBar"><label for="searchBar" style="font-size: 18px;font-weight: bold;">Search Your
                 Item:</label><input id="searchBar" type="search"></div>
         <div class="cart"><button style="font-size: 15pt;font-weight: bold;" onclick="location.href='../Cart'">Your Cart<i
                     class="fa-solid fa-cart-shopping"></i></button></div>
-    </div>
+    </div> -->
     <!--side bar-->
     <!-- <div id="sidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -393,7 +398,7 @@
                     </div>
                 </div>
             </div>
-            <h4><i class="fa-solid fa-cart-shopping"></i>Cart</h4>
+            <h4><i class="fa-solid fa-cart-shopping"></i>CART</h4>
 
             <?php
             include "../../admin/configDatabase.php";
@@ -417,9 +422,9 @@
                                 <img src="data:image/jpeg;base64,' . $imageUrl . '" alt="' . $row["Product_name"] . '" style="width: 50px; height: 50px;">
                                 <p>' . $row["Product_name"] . '</p>
                                 <span class="price">Price : RM' . $row["Product_price"] . '</span>
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="reviewFromCart(' . $row["product_id"] . ')">Review Item</button>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="reviewFromCart(' . $row["product_id"] . ')">REVIEW ITEM</button>
                                 <span>Quantity : ' . $row["quantity"] . '</span>
-                                <button class="btn btn-danger" onclick="deleteFromCart(' . $row["product_id"] . ')">Delete</button>
+                                <button class="btn btn-danger" onclick="deleteFromCart(' . $row["product_id"] . ')">DELETE</button>
                             </div>
                         </li>';
                 }

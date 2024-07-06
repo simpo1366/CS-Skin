@@ -11,6 +11,13 @@ body {
     background-repeat: no-repeat;
     color: white;
 }
+.ph1 {
+    text-align: center;
+    color: black;
+    margin-top: 20px;
+    font-family: 'Stratum2-Black', sans-serif;
+    font-weight: bold;
+}
 .carousel-item {
     height: 300px;
     background-color: #333;

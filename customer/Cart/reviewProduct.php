@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS:GO Skin Modal</title>
     <style>
+        @font-face {
+            font-family: 'Stratum2-Black';
+            src: url(fonts/Stratum2-Black.otf);
+            font-weight: normal;
+            font-style: normal;
+        }
         body {
-            
             margin: 0;
             padding: 0;
             background-color: rgba(0, 0, 0, 0.8);
-            font-family: 'Arial', sans-serif;
+            font-family: 'Stratum2-Black';
         }
         .modal-header{
             background-color: #443d4a;
@@ -56,9 +61,11 @@
         }
         .modal-box-body p strong{
             color: #8f6fd0;
+            font-size: 20px;
         }
         .modal-box-body p span{
             color: white;
+            font-size: 20px;
         }
         .float-container {
             width: auto;

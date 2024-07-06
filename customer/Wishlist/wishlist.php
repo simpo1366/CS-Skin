@@ -17,8 +17,8 @@ $result =  $stmt->get_result();
 <link rel="stylesheet" href="wishlist.css">
 
 <title>My Wishlist</title>
-<div class="container">
-    <h2>My Wishlist</h2>
+<div id="body" class="container">
+    <h1 class="ph1">MY WISHLIST</h1>
     <div class="grid-container">
         <?php
         if ($result->num_rows > 0) {

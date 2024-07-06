@@ -1,6 +1,5 @@
 <?php
-include "../../admin/configDatabase.php";
-session_start();
+include "../Jesse's work/header.php"; 
 
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT o.order_id, o.order_date, o.product_price, o.quantity, o.status, p.Product_name
@@ -10,12 +9,8 @@ $sql = "SELECT o.order_id, o.order_date, o.product_price, o.quantity, o.status, 
 $result = $conn->query($sql);
 $result = $conn->query($sql);
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -23,13 +18,24 @@ $result = $conn->query($sql);
     <title>Product and Services List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        body{
-        margin:0;
-        width: 100%;
-        background-color: rgba(37, 37, 32, 0.348);
+        .body{
+            margin: 0;
+            width: 100%;
+            background-color: rgba(37, 37, 32, 0.348);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Stratum2-Black';
+        }
+        body {
+            background-image: url("../Jesse's work/images/Homepage/CS2_image.png");
+        }
+        #body{
+            min-height: 500px;
         }
         h1{
-            margin: 0;
+            margin-top: 40px;
+            font-family: 'Stratum2-Black';
         }
         .websiteName{
             background-color: black;
@@ -46,12 +52,6 @@ $result = $conn->query($sql);
         }
         .headerLeftSection{
             display: flex;
-        }
-        .headerLeftSection h1{
-            color: white;
-        }
-        .headerLeftSection h1, .headerLeftSection img{
-            margin: auto 10px;
         }
         .headerLeftSection img{
             height: 80px;
@@ -133,22 +133,34 @@ $result = $conn->query($sql);
             top: 4px;
             transition: all 0.3s;
         }
+        .history-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background-color: rgba(37, 37, 32, 0.348);
+        }
+
         .history {
-            width: 60vw;
+            width: 100%; 
+            max-width: 1250px;
             border-collapse: collapse;
-            margin: 20px 300px;
+            margin: 20px;
             background-color: white;
             border-radius: 5px;
         }
+
         th, td {
             border-radius: 5px;
             padding: 8px;
-            text-align: left;
+            text-align: center;
             text-transform: capitalize; /* Capitalize the first letter of each word */
         }
+
         th {
             background-color: #f2f2f2;
         }
+
         .button {
             padding: 8px 16px;
             background-color: #4CAF50;
@@ -159,9 +171,11 @@ $result = $conn->query($sql);
             border-radius: 4px;
             text-transform: capitalize; /* Capitalize the first letter of each word */
         }
+
         .button.review {
             background-color: #007bff;
         }
+
         .status {
             padding: 4px 8px;
             background-color: #e0e0e0;
@@ -172,7 +186,7 @@ $result = $conn->query($sql);
 
         
         /*sidebar*/
-        .sidebar {
+        /* .sidebar {
             height: 100%;
             width: 0;
             position: fixed;
@@ -211,7 +225,7 @@ $result = $conn->query($sql);
             right: 25px;
             font-size: 36px;
             margin-left: 50px;
-        }
+        } */
         
         .openbtn {
             font-size: 20px;
@@ -288,10 +302,12 @@ $result = $conn->query($sql);
             margin: 0 15px;
         } */
     </style>
-</head>
+</div>
 
-<body style="background-color: rgba(37, 37, 32, 0.348);">
-    <header class="websiteName">
+<h1>MY ORDER HISTORY</h1>
+
+<div id="body" style="background-color: rgba(37, 37, 32, 0.8); margin-top: 30px;">
+    <!-- <header class="websiteName">
         <div class="headerLeftSection">
             <img src="https://www.7gone.com/public/images/6684d7654481632539ef0b583b141704.png" alt="CS SKINS WEBSITE">
             <h1>CS SKINS WEBSITE</h1>
@@ -306,26 +322,26 @@ $result = $conn->query($sql);
             <button id="loginBttn">Login</button>
             <button id="signUpBttn">Sign Up</button>
         </div>
-    </header>
-    <div class="searchCart">
+    </header> -->
+    <!-- <div class="searchCart">
         <div class="searchBar"><label for="searchBar" style="font-size: 18px;font-weight: bold;">Search Your
                 Item:</label><input id="searchBar" type="search"></div>
         <div class="cart"><button style="font-size: 15pt;font-weight: bold;" onclick="location.href='../Cart'">Your Cart<i
                     class="fa-solid fa-cart-shopping"></i></button></div>
-    </div>
+    </div> -->
     <!--side bar-->
-    <div id="sidebar" class="sidebar">
+    <!-- <div id="sidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a class="homeNav" href="../Jesse's work/home.php"><i class="fa-solid fa-house"></i>Home</a>
       <a href="../BuyProductList" class="buyNav"><i class="fa-solid fa-cart-shopping"></i>Buy</a>
       <a href="../History" class="historyNav"><i class="fa-solid fa-clock-rotate-left"></i>History</a>
       <a href="../Jesse's work/aboutus.php" class="aboutNav"><i class="fa-solid fa-user-group"></i>About&nbsp;Us</a>
-  </div>
+    </div> -->
   
     <div id="backdrop" class="backdrop"></div>
   
     <div id="main">
-        <button class="openbtn" onclick="openNav()">☰</button>
+        <!-- <button class="openbtn" onclick="openNav()">☰</button> -->
         <div id="backdrop" class="backdrop"></div>
     </div>
 
@@ -341,7 +357,7 @@ $result = $conn->query($sql);
             </tr>
         </thead>
         <tbody>
-        <?php
+            <?php
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo '<tr>
@@ -360,22 +376,22 @@ $result = $conn->query($sql);
                 }
                 $conn->close();
                 ?>
+        </tbody>
     </table>
-</body>
-<!-- Footer HTML -->
-</main>
-<script>
-function openNav() {
-    document.getElementById("sidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-    document.getElementById("backdrop").style.display = "block";
-}
+    <!-- Footer HTML -->
+    </main>
+    <script>
+    function openNav() {
+        document.getElementById("sidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.getElementById("backdrop").style.display = "block";
+    }
 
-function closeNav() {/*sidebar close*/
-    document.getElementById("sidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-    document.getElementById("backdrop").style.display = "none";
-}
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    function closeNav() {/*sidebar close*/
+        document.getElementById("sidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.getElementById("backdrop").style.display = "none";
+    }
+    </script>
 </html>
+<?php include "../Jesse's work/footer.php"; ?>

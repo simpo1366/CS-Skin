@@ -1,13 +1,12 @@
 <?php include 'header.php'; ?>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <div>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS:GO Skins Slider</title>
+    <title>CS Skin Site Homepage</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="home.css">
 
 </div>
+<h1 class="ph1">FIND THEM ALL IN OUR CATALOG TODAY!</h1>
     <!-- Hottest Deals Section -->
     <div class="container">
         <h2 class="section-title">HOTTEST DEALS!</h2>
