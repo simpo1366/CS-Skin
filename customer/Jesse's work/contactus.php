@@ -1,83 +1,60 @@
 <?php 
 include 'header.php'; 
 
-if ($conn === null) {
-    die("Database connection failed. Please check your connection settings.");
-}
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_SESSION['user_id'])) {
-        $user_id = $_SESSION['user_id'];
-        $comment = $_POST['comment'];
-        $rating = $_POST['rating'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
 
-        $sql = "INSERT INTO website_reviews (user_id, comment, rating) VALUES (?, ?, ?)";
-        $stmt = $conn->prepare($sql);
+    $sql = "INSERT INTO contact_us (name, email, message) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
 
-        if ($stmt === false) {
-            die("Prepare failed: " . $conn->error);
-        }
-
-        $stmt->bind_param('isi', $user_id, $comment, $rating);
-
-        if ($stmt->execute() === false) {
-            die("Execute failed: " . $stmt->error);
-        }
-
-        $stmt->close();
-    } else {
-        die("User not logged in.");
+    if ($stmt === false) {
+        die("Prepare failed: " . $conn->error);
     }
+
+    $stmt->bind_param('sss', $name, $email, $message);
+
+    if ($stmt->execute() === false) {
+        die("Execute failed: " . $stmt->error);
+    }
+
+    $stmt->close();
+    echo "<p class='alert alert-success'>Thank you for contacting us!</p>";
 }
 
-// Fetch the latest 10 comments and join with users table to get usernames
-$sql = "SELECT wr.comment, wr.rating, u.username 
-        FROM website_reviews wr
-        JOIN user u ON wr.user_id = u.id
-        ORDER BY wr.created_at DESC
-        LIMIT 10";
-$result = $conn->query($sql);
-
-if ($result === false) {
-    die("Query failed: " . $conn->error);
-}
+$conn->close();
 ?>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="contactus.css">
-
 <div>
-    <div class="container mt-5 text-dark">
-        <h1 class="mb-4">POST YOUR REVIEW OF OUR SITE!</h1>
-        <form method="post" action="" class="mb-4">
-            <div class="form-group mb-2">
-                <label for="comment">Comment:</label>
-                <textarea class="form-control" name="comment" id="comment" required></textarea>
-            </div>
-            <div class="form-group mb-2" id="">
-                <label for="rating">Rating:</label>
-                <select class="form-control" name="rating" id="rating" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
-        <ul class="list-group">
-            <?php while ($row = $result->fetch_assoc()): ?>
-                <li class="list-group-item">
-                    <strong><?php echo htmlspecialchars($row['username']); ?></strong> rated it 
-                    <strong><?php echo htmlspecialchars($row['rating']); ?></strong> stars
-                    <p><?php echo htmlspecialchars($row['comment']); ?></p>
-                </li>
-            <?php endwhile; ?>
-        </ul>
-    </div>
+    <main class="container mt-5 mb-5">
+        <section class="contact-us bg-dark bg-gradient text-light">
+            <h1 class="mb-4">CONTACT US</h1>
+            <h2>Get in touch with us</h2>
+            <p>Have any questions or feedback? We'd love to hear from you!</p>
+            <form action="" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <h2 class="mt-4">Customer Service Hotline</h2>
+            <p>If you need immediate assistance, please call our customer service hotline:</p>
+            <p class="font-weight-bold">+06 123-4567</p>
+        </section>
+    </main>
 </div>
-<?php 
-include 'footer.php'; 
-$conn->close(); 
-?>
-
+<?php include 'footer.php'; ?>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
