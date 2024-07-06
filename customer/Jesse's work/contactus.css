@@ -1,0 +1,47 @@
+body {
+    background-image: url('images/Homepage/CS2_image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+h1 {
+    font-family: 'Stratum2-Black';
+}
+.form-group {
+    font-family: 'Stratum2-Black';
+    font-size: 17px;
+    text-transform: uppercase;
+}
+.btn {
+    font-family: 'Stratum2-Black';
+}
+.contact-us {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.contact-us h1 {
+    font-family: 'Stratum2-Black';
+    font-size: 2.5rem;
+}
+.contact-us h2 {
+    font-family: 'Stratum2-Black';
+    font-size: 1.75rem;
+    margin-top: 1.5rem;
+}
+.contact-us .form-group {
+    margin-bottom: 1.5rem;
+}
+.contact-us .btn {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.contact-us .btn:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+.contact-us .form-group {
+    font-family: 'Stratum2-Black';
+    text-transform: uppercase;
+}

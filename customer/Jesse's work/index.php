@@ -1,15 +1,15 @@
-<?php include 'header.php'; ?>
+<?php include "../Jesse's work/header.php"; ?>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <style>
     body {
-        background-image: url('images/Homepage/CS2_image.png');
+        background-image: url("../Jesse's work/images/Homepage/CS2_image.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         color: white;
+        font-family: 'Stratum2-Black';
     }
     .hero {
-        background-image: url(''); /* Replace with your hero image */
         background-size: cover;
         background-position: center;
         color: #fff;
@@ -109,7 +109,7 @@
         </section>
     </main>
 </div>
-<?php include 'footer.php'; ?>
+<?php include "../Jesse's work/footer.php"; ?>
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

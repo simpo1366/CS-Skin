@@ -17,14 +17,14 @@
     <div class="col mb-3">
       <h5 class="text-dark">CUSTOMER SERVICE</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="contactus.php" class="nav-link p-0 text-dark">Help | Contact us</a></li>
+        <li class="nav-item mb-2"><a href="../Jesse's work/contactus.php" class="nav-link p-0 text-dark">Help | Contact us</a></li>
       </ul>
     </div>
 
     <div class="col mb-3">
       <h5 class="text-dark">INFORMATION</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="aboutus.php" class="nav-link p-0 text-dark">About us</a></li>
+        <li class="nav-item mb-2"><a href="../Jesse's work/aboutus.php" class="nav-link p-0 text-dark">About us</a></li>
 
       </ul>
     </div>
