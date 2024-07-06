@@ -136,7 +136,7 @@ $sql = "SELECT o.order_id,o.order_date, o.total, o.status, u.username, p.Product
         FROM orders o
         JOIN user u ON o.user_id = u.id
         JOIN product_category p ON o.product_id = p.Product_id
-        WHERE o.user_id = '$user_id'";
+        ";
 $result = $conn->query($sql);
 ?>
   <?php
