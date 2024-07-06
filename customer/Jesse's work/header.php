@@ -31,7 +31,7 @@ if (isset($_SESSION['id'])) {
                     <img src="../Jesse's work/images/Header/csgo_icon.png" alt="" width="100px">
                 </a>
                 <ul id="header-options" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="../BuyProductList/index.php" class="nav-link px-2 link-light">Catalog</a></li>
+                    <li><a href="../BuyProductList/index.php?mainCategory=Any&subCategory=Any" class="nav-link px-2 link-light">Catalog</a></li>
                     <li><a href="../Cart/index.php" class="nav-link px-2 link-light">Shopping Cart</a></li>
                     <li><a href="../Wishlist/wishlist.php" class="nav-link px-2 link-light">Wishlist</a></li>
                     <li><a href="../Jesse's work/comments.php" class="nav-link px-2 link-light">Reviews</a></li>
