@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<?php include "../Jesse's work/header.php" ?>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -11,7 +7,6 @@
 </head>
 
 <body>
-<?php include "../Jesse's work/header.php" ?>
 
 <?php
 $new_password_error = "";
@@ -59,7 +54,7 @@ if (isset($_POST["change_passwordbtn"]))
 
     <div class="container light-style flex-grow-1 container-p-y">
         <h4 class="font-weight-bold py-3 mb-4">
-           Account settings
+           ACCOUNT SETTINGS
         </h4>
         <div class="card overflow-hidden">
             <div class="row no-gutters row-bordered row-border-light">
@@ -194,10 +189,7 @@ if (isset($_POST["change_passwordbtn"]))
         </div>
     </div>
 
-    <?php include "../Jesse's work/footer.php"?>
-
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
 
@@ -205,3 +197,4 @@ if (isset($_POST["change_passwordbtn"]))
 </body>
 
 </html>
+<?php include "../Jesse's work/footer.php"?>

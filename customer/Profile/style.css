@@ -3,10 +3,15 @@ body {
     background-image: url(https://cdn.akamai.steamstatic.com/apps/csgo/images/csgo_react/cs2/header_bg.svg);
     background-repeat:no-repeat;
     background-size: cover center;    margin-top: 20px;
+    font-family: 'Stratum2-Black';
 }
 
 .username{
     opacity: 1;
+}
+
+.container {
+    font-family: 'Stratum2-Black';
 }
 
 .container-p-y{
