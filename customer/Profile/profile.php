@@ -77,7 +77,6 @@ if (isset($_POST["change_passwordbtn"]))
                     <div class="tab-content">
                         <div class="tab-pane fade active show" id="account-general">
                             <hr class="border-light m-0">
-                            <h2 class="text-center">Account Type: <?= $_SESSION["role"]?></h2>
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">Username:</div>
@@ -86,6 +85,10 @@ if (isset($_POST["change_passwordbtn"]))
                                 <div class="row mb-3">
                                     <div class="col-sm-4">Email:</div>
                                     <p><div class="border p-2"><?= $_SESSION["email"]?></div><p>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-4">Account Created:</div>
+                                    <p><div class="border p-2"><?= $_SESSION["register_time"]?></div><p>
                                 </div>
                             </div>
                         </div>

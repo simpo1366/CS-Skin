@@ -2,9 +2,7 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    background-image: url(https://cdn.akamai.steamstatic.com/apps/csgo/images/csgo_react/cs2/header_bg.svg);
-    background-repeat:no-repeat;
-    background-size: cover center;
+    background: linear-gradient(90deg, rgb(15, 3, 247) 0%, rgb(53, 2, 120) 35%, rgb(248, 2, 248) 100%);
 }
 
 
