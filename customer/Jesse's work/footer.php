@@ -5,7 +5,7 @@
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-1 mt-5">
     <div class="col mb-4">
       <a href="home.php" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-        <img src="images/Header/csgo_icon.png" alt="" width="100px">
+        <img src="../Jesse's work/images/Header/csgo_icon.png" alt="" width="100px">
       </a>
       <p class="text-dark">© 2024</p>
     </div>
