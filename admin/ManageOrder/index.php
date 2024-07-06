@@ -132,11 +132,21 @@ include "../../admin/configDatabase.php";
 
 
 $user_id = $_SESSION['user_id'] ?? 1;
-$sql = "SELECT o.order_id,o.order_date, o.total, o.status, u.username, p.Product_name, p.Product_img, p.Product_price
-        FROM orders o
-        JOIN user u ON o.user_id = u.id
-        JOIN product_category p ON o.product_id = p.Product_id
-        ";
+$sql = "SELECT 
+o.order_id,
+o.order_date,
+o.total,
+o.status,
+u.username,
+p.Product_name,
+p.Product_img,
+p.Product_price
+FROM 
+orders o
+JOIN 
+user u ON o.user_id = u.id
+JOIN 
+product_category p ON o.product_id = p.Product_id";
 $result = $conn->query($sql);
 ?>
   <?php
