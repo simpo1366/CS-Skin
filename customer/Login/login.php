@@ -49,13 +49,13 @@
             include "dataconnection.php";
             $dbConnection = getDatabaseConnection();
 
-            $statement = $dbConnection->prepare("SELECT id, email, password, role FROM user where username = ?");
+            $statement = $dbConnection->prepare("SELECT id, email, password, register_time FROM user where username = ?");
 
             $statement->bind_param('s', $username);
 
             $statement->execute();
 
-            $statement->bind_result($id, $email, $stored_password, $role);
+            $statement->bind_result($id, $email, $stored_password, $register_time);
 
             if($statement->fetch())
             {
@@ -66,7 +66,7 @@
                     $_SESSION["username"] = $username;
                     $_SESSION["email"] = $email;
                     $_SESSION["password"] = $password;
-                    $_SESSION["role"] = $role;
+                    $_SESSION["register_time"] = $register_time;
 
                     header("location:../Jesse's work/home.php");
                     exit;
@@ -111,6 +111,8 @@
                 </form>
                 <p class="text-center text-muted mt-5 mb-0">Don't have already an account? <a href="../Sign Up/signup.php"
                     class="fw-bold text-body"><u>Sign up here</u></a></p>
+                <p class="text-center text-muted mt-5 mb-0">Admin Login?<a href="../admin/AdminLogin/login.php"
+                    class="fw-bold text-body"><u>Click Here</u></a></p>
             </div>
         </div>
     </div>
