@@ -53,9 +53,9 @@ if (isset($_POST["change_passwordbtn"]))
 
 
     <div class="container light-style flex-grow-1 container-p-y">
-        <h4 class="font-weight-bold py-3 mb-4">
+        <h1 class="font-weight-bold py-3 mt-4 mb-2">
            ACCOUNT SETTINGS
-        </h4>
+        </h1>
         <div class="card overflow-hidden">
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
