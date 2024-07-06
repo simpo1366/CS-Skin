@@ -49,13 +49,13 @@
             include "dataconnection.php";
             $dbConnection = getDatabaseConnection();
 
-            $statement = $dbConnection->prepare("SELECT id, email, password FROM user where username = ?");
+            $statement = $dbConnection->prepare("SELECT id, email, password, role FROM user where username = ?");
 
             $statement->bind_param('s', $username);
 
             $statement->execute();
 
-            $statement->bind_result($id, $email, $stored_password);
+            $statement->bind_result($id, $email, $stored_password, $role);
 
             if($statement->fetch())
             {
@@ -66,6 +66,7 @@
                     $_SESSION["username"] = $username;
                     $_SESSION["email"] = $email;
                     $_SESSION["password"] = $password;
+                    $_SESSION["role"] = $role;
 
                     header("location:../Jesse's work/home.php");
                     exit;
@@ -100,6 +101,9 @@
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" name="password">
+                    </div>
+                    <div class="forgot text-end mb-5">
+                        <small><a href="forgot.php">Forgot Password?</a></small>
                     </div>
                     <div class="text-center">
                         <button type="submit" name="loginbtn" class="btn btn-primary">Login</button>

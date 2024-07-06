@@ -44,7 +44,7 @@ if (isset($_SESSION['id'])) {
                         <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="../Profile/profile.php">Profile</a></li>
                         <li><a class="dropdown-item" href="../History/index.php">Order History</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="../Login/logout.php">Sign out</a></li>
