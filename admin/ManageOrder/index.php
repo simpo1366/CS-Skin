@@ -84,6 +84,9 @@ main .listSection{
     transform: scaleX(1);
     transform-origin: bottom left;
 }
+.col{
+  margin: 5px -3px;
+}
     </style>
 </head>
 <body>
