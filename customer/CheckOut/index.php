@@ -328,7 +328,7 @@
                         </div>
                     </div>
                 </div>
-                <h4><i class="fa-solid fa-money-bill-1"></i></i>Cash Out</h4>
+                <h4><i class="fa-solid fa-money-bill-1"></i></i>Check Out</h4>
                 
                 <?php
                 include "../../admin/configDatabase.php";
@@ -412,7 +412,7 @@
             }
             ?>
             <input type="hidden" name="total" value="<?php echo $total; ?>">
-            <button type="submit" class="btn btn-success">Cash Out</button>
+            <button type="submit" class="btn btn-success">Check Out</button>
             </form>
         </div>
     </div>
