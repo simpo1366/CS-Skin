@@ -94,7 +94,7 @@ p{
     margin-left: 10vw;
   }
   .list-item p{
-    width: 30vw;
+    width: 22vw;
   }
     </style>
 </head>
@@ -145,7 +145,7 @@ p{
             while ($row = $result->fetch_assoc()) {
                 echo '<li class="list-group-item">
                         <div class="list-item">
-                            <p>Customer Name: ' . htmlspecialchars($row["username"]) . '</p>
+                            <p style="margin:auto 0;">Customer Name: ' . htmlspecialchars($row["username"]) . '</p>
                             <span>Email: ' . htmlspecialchars($row["email"]) . '</span>
                             <span>Register Time: ' . htmlspecialchars($row["register_time"]) . '</span>
                             <button class="btn btn-primary" onclick="editUser(\'' . $row["id"] . '\')">Edit</button>
